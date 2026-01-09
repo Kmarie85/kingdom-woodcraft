@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Request a Quote | Kingdom Woodcraft</title>
-  <meta name="description" content="Request a quote from Kingdom Woodcraft. Custom woodworking and renovation projects built to last." />
+  <meta name="description" content="Request a quote from Kingdom Woodcraft. Tell us what you want built and we’ll follow up with next steps." />
   <link rel="stylesheet" href="style.css" />
   <script defer src="script.js"></script>
 </head>
@@ -38,7 +38,7 @@
       <div class="breadcrumb">Home / Contact</div>
       <h1>Request a Quote</h1>
       <p class="lead">Give us the basics. We’ll follow up with next steps.</p>
-      <p class="lead">Prefer email or phone? Call <strong>678-428-6150</strong>.</p>
+      <p class="lead">Prefer phone? Call <strong>678-428-6150</strong>.</p>
     </div>
   </section>
 
@@ -51,10 +51,7 @@
         method="POST"
         action="https://formspree.io/f/xdakrvrv"
       >
-        <!-- Email subject -->
         <input type="hidden" name="_subject" value="New Quote Request — Kingdom Woodcraft">
-
-        <!-- Source tracking (filled by script.js) -->
         <input type="hidden" name="source_page" id="source_page" value="">
 
         <div class="form-grid">
@@ -114,24 +111,16 @@
             id="message"
             name="message"
             required
-            placeholder="Describe what you want built, timeline, location, and anything important."
+            placeholder="Describe what you want built, timeline, and anything important (include location for a faster quote)."
           ></textarea>
           <p class="help">Tip: include location + ideal start date for a faster quote.</p>
         </div>
 
         <!-- Honeypot spam protection -->
-        <input
-          type="text"
-          name="_gotcha"
-          style="display:none"
-          tabindex="-1"
-          autocomplete="off"
-        >
+        <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
 
         <div style="margin-top:1rem; display:flex; gap:.75rem; flex-wrap:wrap; justify-content:center;">
-          <button id="quote-submit" class="btn btn-primary" type="submit">
-            Send Request
-          </button>
+          <button id="quote-submit" class="btn btn-primary" type="submit">Send Request</button>
           <a class="btn btn-ghost" href="gallery.html">View work first</a>
         </div>
       </form>
@@ -142,9 +131,7 @@
 
 <footer class="footer">
   <div class="container">
-    <div>
-      <strong>Kingdom Woodcraft</strong> • Custom woodworking & renovations • Ph#: 678-428-6150
-    </div>
+    <div><strong>Kingdom Woodcraft</strong> • Custom woodworking & renovations • Ph#: 678-428-6150</div>
     <div>© <span id="year"></span> • Built with care</div>
   </div>
 </footer>
