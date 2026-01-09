@@ -691,6 +691,14 @@ textarea {
   display: block;
 }
 
+.contact-card{
+  border: 2px solid rgba(0,0,0,.15);
+  border-radius: 14px;         /* smaller radius */
+  padding: 14px 16px;          /* more left padding so text never kisses the edge */
+  overflow: visible;           /* prevents clipping */
+  background: rgba(255,255,255,.85);
+}
+
 /* =========================
    Store (kept the same)
    ========================= */

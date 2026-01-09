@@ -57,24 +57,57 @@
         <div class="form-grid">
           <div>
             <label for="name">Name</label>
-            <input
-              id="name"
-              name="name"
-              required
-              placeholder="Your name"
-              autocomplete="name"
-            />
+            <input id="name" name="name" required placeholder="Your name" autocomplete="name" />
           </div>
 
           <div>
             <label for="email">Email</label>
+            <input id="email" name="email" type="email" required placeholder="you@email.com" autocomplete="email" />
+          </div>
+
+          <!-- NEW: Preferred contact method -->
+          <div>
+            <label for="preferredContact">Preferred contact method</label>
+            <select id="preferredContact" name="preferred_contact" required>
+              <option value="">Select one</option>
+              <option>Phone call</option>
+              <option>Text</option>
+              <option>Email</option>
+            </select>
+            <p class="help">If you choose phone/text, add a number below.</p>
+          </div>
+
+          <!-- NEW: Phone (useful even if they pick email) -->
+          <div>
+            <label for="phone">Phone (optional)</label>
             <input
-              id="email"
-              name="email"
-              type="email"
+              id="phone"
+              name="phone"
+              type="tel"
+              placeholder="(678) 555-1234"
+              autocomplete="tel"
+            />
+          </div>
+
+          <!-- NEW: City -->
+          <div>
+            <label for="city">City</label>
+            <input id="city" name="city" required placeholder="City" autocomplete="address-level2" />
+          </div>
+
+          <!-- NEW: ZIP -->
+          <div>
+            <label for="zip">ZIP</label>
+            <input
+              id="zip"
+              name="zip"
+              inputmode="numeric"
+              pattern="[0-9]{5}"
+              maxlength="5"
               required
-              placeholder="you@email.com"
-              autocomplete="email"
+              placeholder="5-digit ZIP"
+              autocomplete="postal-code"
+              title="Please enter a 5-digit ZIP code."
             />
           </div>
 
@@ -111,12 +144,12 @@
             id="message"
             name="message"
             required
-            placeholder="Describe what you want built, timeline, and anything important (include location for a faster quote)."
+            placeholder="Describe what you want built, timeline, measurements, and anything important."
           ></textarea>
-          <p class="help">Tip: include location + ideal start date for a faster quote.</p>
+          <p class="help">Tip: add timeline + any photo links for a faster quote.</p>
         </div>
 
-        <!-- Honeypot spam protection -->
+        <!-- Honeypot -->
         <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
 
         <div style="margin-top:1rem; display:flex; gap:.75rem; flex-wrap:wrap; justify-content:center;">
