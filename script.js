@@ -1,4 +1,13 @@
 /* =========================
+   SOURCE PAGE TRACKING
+   - Fills <input id="source_page"> if present (contact form)
+========================= */
+document.addEventListener("DOMContentLoaded", () => {
+  const src = document.getElementById("source_page");
+  if (src) src.value = window.location.href;
+});
+
+/* =========================
    GLOBAL UTILITIES
 ========================= */
 
@@ -192,84 +201,24 @@ function goToGalleryCategory() {
   // Replace buyUrl with Stripe Payment Links or PayPal hosted checkout URLs
   const PRODUCTS = [
     // Cutting Boards
-    {
-      id: "cb-maple-endgrain",
-      name: "Maple End-Grain Cutting Board",
-      price: 120,
-      category: "Cutting Boards",
-      buyUrl: "https://example.com/stripe-link-maple",
-    },
-    {
-      id: "cb-walnut-chef",
-      name: "Walnut Chef Board (Juice Groove)",
-      price: 145,
-      category: "Cutting Boards",
-      buyUrl: "https://example.com/stripe-link-walnut",
-    },
-    {
-      id: "cb-mixed-wood",
-      name: "Mixed Hardwood Board",
-      price: 95,
-      category: "Cutting Boards",
-      buyUrl: "https://example.com/stripe-link-mixed",
-    },
+    { id: "cb-maple-endgrain", name: "Maple End-Grain Cutting Board", price: 120, category: "Cutting Boards", buyUrl: "https://example.com/stripe-link-maple" },
+    { id: "cb-walnut-chef", name: "Walnut Chef Board (Juice Groove)", price: 145, category: "Cutting Boards", buyUrl: "https://example.com/stripe-link-walnut" },
+    { id: "cb-mixed-wood", name: "Mixed Hardwood Board", price: 95, category: "Cutting Boards", buyUrl: "https://example.com/stripe-link-mixed" },
 
     // Serving / Charcuterie
-    {
-      id: "sv-charcuterie",
-      name: "Charcuterie / Serving Board",
-      price: 85,
-      category: "Serving Boards",
-      buyUrl: "https://example.com/stripe-link-charcuterie",
-    },
-    {
-      id: "sv-pizza-peel",
-      name: "Wood Pizza Peel",
-      price: 60,
-      category: "Serving Boards",
-      buyUrl: "https://example.com/stripe-link-peel",
-    },
+    { id: "sv-charcuterie", name: "Charcuterie / Serving Board", price: 85, category: "Serving Boards", buyUrl: "https://example.com/stripe-link-charcuterie" },
+    { id: "sv-pizza-peel", name: "Wood Pizza Peel", price: 60, category: "Serving Boards", buyUrl: "https://example.com/stripe-link-peel" },
 
     // Home Goods
-    {
-      id: "hg-coasters",
-      name: "Handmade Coasters (Set of 4)",
-      price: 28,
-      category: "Home Goods",
-      buyUrl: "https://example.com/stripe-link-coasters",
-    },
-    {
-      id: "hg-shelf",
-      name: "Floating Shelf",
-      price: 75,
-      category: "Home Goods",
-      buyUrl: "https://example.com/stripe-link-shelf",
-    },
+    { id: "hg-coasters", name: "Handmade Coasters (Set of 4)", price: 28, category: "Home Goods", buyUrl: "https://example.com/stripe-link-coasters" },
+    { id: "hg-shelf", name: "Floating Shelf", price: 75, category: "Home Goods", buyUrl: "https://example.com/stripe-link-shelf" },
 
     // Gifts
-    {
-      id: "gf-engraved-keepsake",
-      name: "Engraved Keepsake Box",
-      price: 55,
-      category: "Gifts",
-      buyUrl: "https://example.com/stripe-link-box",
-    },
-    {
-      id: "gf-name-plaque",
-      name: "Custom Name Plaque",
-      price: 45,
-      category: "Gifts",
-      buyUrl: "https://example.com/stripe-link-plaque",
-    },
+    { id: "gf-engraved-keepsake", name: "Engraved Keepsake Box", price: 55, category: "Gifts", buyUrl: "https://example.com/stripe-link-box" },
+    { id: "gf-name-plaque", name: "Custom Name Plaque", price: 45, category: "Gifts", buyUrl: "https://example.com/stripe-link-plaque" },
 
     // Other
-    {
-      id: "ot-custom",
-      name: "Custom Request (Deposit)",
-      price: 50,
-      category: "Other",
-      buyUrl: "https://example.com/stripe-link-deposit",
-    },
+    { id: "ot-custom", name: "Custom Request (Deposit)", price: 50, category: "Other", buyUrl: "https://example.com/stripe-link-deposit" },
   ];
 
   function money(n) {
@@ -295,9 +244,7 @@ function goToGalleryCategory() {
     storeRoot.setAttribute("data-selected-product", productId);
 
     if (hiddenProductId) hiddenProductId.value = productId;
-    if (selectedProductName) {
-      selectedProductName.textContent = product ? product.name : "Custom / not listed";
-    }
+    if (selectedProductName) selectedProductName.textContent = product ? product.name : "Custom / not listed";
 
     if (personalizeToggle) personalizeToggle.checked = true;
     updatePersonalizeUI();
@@ -308,10 +255,7 @@ function goToGalleryCategory() {
   function render(category) {
     if (!productsEl) return;
 
-    const list =
-      !category || category === "All"
-        ? PRODUCTS
-        : PRODUCTS.filter((p) => p.category === category);
+    const list = !category || category === "All" ? PRODUCTS : PRODUCTS.filter((p) => p.category === category);
 
     productsEl.innerHTML = list
       .map(
@@ -346,21 +290,13 @@ function goToGalleryCategory() {
       )
       .join("");
 
-    // hook up personalize buttons (guard if productsEl exists)
     productsEl.querySelectorAll("[data-personalize]").forEach((btn) => {
-      btn.addEventListener("click", () => {
-        const productId = btn.getAttribute("data-personalize");
-        setSelectedProduct(productId);
-      });
+      btn.addEventListener("click", () => setSelectedProduct(btn.getAttribute("data-personalize")));
     });
   }
 
-  if (categorySelect) {
-    categorySelect.addEventListener("change", () => render(categorySelect.value));
-  }
-  if (personalizeToggle) {
-    personalizeToggle.addEventListener("change", updatePersonalizeUI);
-  }
+  if (categorySelect) categorySelect.addEventListener("change", () => render(categorySelect.value));
+  if (personalizeToggle) personalizeToggle.addEventListener("change", updatePersonalizeUI);
 
   updatePersonalizeUI();
   render(categorySelect ? categorySelect.value : "All");
@@ -458,14 +394,17 @@ function goToGalleryCategory() {
 /* =========================
    CONTACT FORM (Formspree)
    - AJAX submit
-   - Show success message
+   - Tracks GA event (if present)
+   - Redirects to thank-you page on success
    - Disable button while sending
 ========================= */
 (() => {
   const quoteForm = document.getElementById("quote-form");
   if (!quoteForm) return;
 
-  const quoteSuccess = document.getElementById("form-success");
+  // ✅ Repo-site safe: goes to /kingdom-woodcraft/thank-you.html
+  const THANK_YOU_PATH = "thank-you.html";
+
   const quoteSubmit = document.getElementById("quote-submit");
 
   quoteForm.addEventListener("submit", async (e) => {
@@ -486,22 +425,21 @@ function goToGalleryCategory() {
       });
 
       if (res.ok) {
-        quoteForm.reset();
-
-        if (quoteSuccess) {
-          quoteSuccess.classList.add("open");
-          quoteSuccess.scrollIntoView({ behavior: "smooth", block: "start" });
-        } else {
-          alert("Sent! (Add #form-success to show a nicer message.)");
+        // Analytics event (only fires if GA is installed)
+        if (window.gtag) {
+          gtag("event", "quote_request_submit", {
+            event_category: "lead",
+            event_label: "quote_form",
+          });
         }
+
+        window.location.assign(THANK_YOU_PATH);
+        return;
       } else {
-        // Try to read Formspree JSON errors if present
         let msg = "Something went wrong. Please try again.";
         try {
           const data = await res.json();
-          if (data && data.errors && data.errors.length) {
-            msg = data.errors.map((x) => x.message).join("\n");
-          }
+          if (data?.errors?.length) msg = data.errors.map((x) => x.message).join("\n");
         } catch (_) {}
         alert(msg);
       }
