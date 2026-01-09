@@ -4,15 +4,17 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Outdoor Space | Gallery | Kingdom Woodcraft</title>
-  <link rel="stylesheet" href="../style.css" />
-  <script defer src="../script.js"></script>
+
+  <!-- ✅ Root-safe paths -->
+  <link rel="stylesheet" href="style.css" />
+  <script defer src="script.js"></script>
 </head>
 <body>
 
 <header class="site-header">
   <div class="container nav">
-    <a href="../index.html" class="logo">
-      <img src="../gallery/assets/images/White king logo.png" alt="Kingdom logo" id="logo">
+    <a href="index.html" class="logo">
+      <img src="gallery/assets/images/White king logo.png" alt="Kingdom logo" id="logo">
       <div class="brand-text">
         <div class="name">Kingdom Woodcraft</div>
         <div class="tag">Faith-driven craftsmanship • Built to last</div>
@@ -22,92 +24,93 @@
     <button class="nav-toggle" type="button" data-nav-toggle aria-label="Toggle menu">Menu</button>
 
     <nav class="nav-links" data-nav-links>
-      <a href="../about.html">About</a>
-      <a href="../gallery.html">Gallery</a>
-      <a href="../store.html">Storefront</a>
-      <a class="nav-btn" href="../contact.html">Request a Quote</a>
+      <a href="about.html">About</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="store.html">Storefront</a>
+      <a class="nav-btn" href="contact.html" data-track="cta" data-label="Request a Quote - Nav">Request a Quote</a>
     </nav>
   </div>
 </header>
 
-
 <main>
   <section class="page-hero">
     <div class="container">
-      <div class="breadcrumb"><a href="../gallery.html">Gallery</a> / Outdoor Space</div>
+      <div class="breadcrumb"><a href="gallery.html">Gallery</a> / Outdoor Space</div>
       <h1>Outdoor Space</h1>
-      <p class="lead">Click the photo to view the full picture.</p> 
+      <p class="lead">Click the photo to view the full picture.</p>
     </div>
   </section>
 
   <section class="section">
-<div class="container grid grid-3 gallery-grid">
-  <div class="gallery-card">
-    <img
-      data-lightbox-img
-      data-full="../gallery/assets/images/outdoorspaces/out1.jpeg"
-      src="../gallery/assets/images/outdoorspaces/out1.jpeg"
-      alt="out1"
-    />
-  </div>
+    <div class="container grid grid-3 gallery-grid">
 
-    <div class="gallery-card">
-    <img
-      data-lightbox-img
-      data-full="../gallery/assets/images/outdoorspaces/out2.jpeg"
-      src="../gallery/assets/images/outdoorspaces/out2.jpeg"
-      alt="out2"
-    />
-  </div>
+      <div class="gallery-card">
+        <img
+          data-lightbox-img
+          data-full="gallery/assets/images/outdoorspaces/out1.jpeg"
+          src="gallery/assets/images/outdoorspaces/out1.jpeg"
+          alt="out1"
+        />
+      </div>
 
-    <div class="gallery-card">
-    <img
-      data-lightbox-img
-      data-full="../gallery/assets/images/outdoorspaces/out3.jpeg"
-      src="../gallery/assets/images/outdoorspaces/out3.jpeg"
-      alt="out3"
-    />
-  </div>
+      <div class="gallery-card">
+        <img
+          data-lightbox-img
+          data-full="gallery/assets/images/outdoorspaces/out2.jpeg"
+          src="gallery/assets/images/outdoorspaces/out2.jpeg"
+          alt="out2"
+        />
+      </div>
 
-    <div class="gallery-card">
-    <img
-      data-lightbox-img
-      data-full="../gallery/assets/images/outdoorspaces/out4.jpeg"
-      src="../gallery/assets/images/outdoorspaces/out4.jpeg"
-      alt="out4"
-    />
-  </div>
+      <div class="gallery-card">
+        <img
+          data-lightbox-img
+          data-full="gallery/assets/images/outdoorspaces/out3.jpeg"
+          src="gallery/assets/images/outdoorspaces/out3.jpeg"
+          alt="out3"
+        />
+      </div>
 
-    <div class="gallery-card">
-    <img
-      data-lightbox-img
-      data-full="../gallery/assets/images/outdoorspaces/out5.jpeg"
-      src="../gallery/assets/images/outdoorspaces/out5.jpeg"
-      alt="out5"
-    />
-  </div>
+      <div class="gallery-card">
+        <img
+          data-lightbox-img
+          data-full="gallery/assets/images/outdoorspaces/out4.jpeg"
+          src="gallery/assets/images/outdoorspaces/out4.jpeg"
+          alt="out4"
+        />
+      </div>
 
-    <div class="gallery-card">
-    <img
-      data-lightbox-img
-      data-full="../gallery/assets/images/outdoorspaces/out6.jpeg"
-      src="../gallery/assets/images/outdoorspaces/out6.jpeg"
-      alt="out6"
-    />
-  </div>
+      <div class="gallery-card">
+        <img
+          data-lightbox-img
+          data-full="gallery/assets/images/outdoorspaces/out5.jpeg"
+          src="gallery/assets/images/outdoorspaces/out5.jpeg"
+          alt="out5"
+        />
+      </div>
 
-    <div class="gallery-card">
-    <img
-      data-lightbox-img
-      data-full="../gallery/assets/images/outdoorspaces/out7.jpeg"
-      src="../gallery/assets/images/outdoorspaces/out7.jpeg"
-      alt="out7"
-    />
-  </div>
+      <div class="gallery-card">
+        <img
+          data-lightbox-img
+          data-full="gallery/assets/images/outdoorspaces/out6.jpeg"
+          src="gallery/assets/images/outdoorspaces/out6.jpeg"
+          alt="out6"
+        />
+      </div>
+
+      <div class="gallery-card">
+        <img
+          data-lightbox-img
+          data-full="gallery/assets/images/outdoorspaces/out7.jpeg"
+          src="gallery/assets/images/outdoorspaces/out7.jpeg"
+          alt="out7"
+        />
+      </div>
+
     </div>
 
     <div class="container" style="margin-top:1rem;">
-      <a class="btn btn-ghost" href="../gallery.html">← Back to Gallery</a>
+      <a class="btn btn-ghost" href="gallery.html" data-track="cta" data-label="Back to Gallery - Outdoor Space">← Back to Gallery</a>
     </div>
   </section>
 </main>
