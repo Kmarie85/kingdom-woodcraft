@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Gallery | Kingdom Woodcraft</title>
+  <link rel="stylesheet" href="style.css" />
+  <script defer src="script.js"></script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container nav">
+    <a href="index.html" class="logo">
+      <img src="gallery/assets/images/White king logo.png" alt="Kingdom logo" id="logo">
+      <div class="brand-text">
+        <div class="name">Kingdom Woodcraft</div>
+        <div class="tag">Faith-driven craftsmanship • Built to last</div>
+      </div>
+    </a>
+
+    <button class="nav-toggle" type="button" data-nav-toggle aria-label="Toggle menu">Menu</button>
+
+    <nav class="nav-links" data-nav-links>
+      <a href="about.html">About</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="store.html">Storefront</a>
+      <a class="nav-btn" href="contact.html">Request a Quote</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="page-hero">
+    <div class="container">
+      <div class="breadcrumb">Home / Gallery</div>
+      <h1>Gallery</h1>
+      <p class="lead">Browse project categories. Each picture opens a dedicated photo page.</p>
+    </div>
+  </section>
+
+  <!-- Quick category search / jump -->
+  <section class="section section-search">
+    <div class="container">
+      <div class="gallery-search">
+        <label for="galleryJump" class="gallery-search-label">Jump to a category</label>
+
+        <div class="gallery-search-row">
+          <input
+            id="galleryJump"
+            class="gallery-search-input"
+            type="text"
+            placeholder="Type: bathroom, kitchen, decks…"
+            list="galleryCategories"
+            autocomplete="off"
+          />
+
+          <button class="btn btn-primary gallery-search-btn" type="button" onclick="goToGalleryCategory()">
+            Go
+          </button>
+        </div>
+
+        <datalist id="galleryCategories">
+          <option value="Bathrooms" data-href="gallery/bathroom.html"></option>
+          <option value="Kitchen" data-href="gallery/kitchen.html"></option>
+          <option value="Livingroom" data-href="gallery/livingroom.html"></option>
+          <option value="Custom Beam Wrapping" data-href="gallery/custom-beam-wrapping.html"></option>
+          <option value="Custom Made" data-href="gallery/custom-made.html"></option>
+
+          <!-- ✅ FIX: your real filename is custom-room-accent-walls.html -->
+          <option value="Custom Rooms / Accent Walls" data-href="gallery/custom-room-accent-walls.html"></option>
+
+          <option value="Decks / Roofs" data-href="gallery/decks-roofs.html"></option>
+          <option value="Door Installations" data-href="gallery/door-installations.html"></option>
+          <option value="Floors / Baseboards / Trim" data-href="gallery/floors-trim.html"></option>
+          <option value="Outdoor Space" data-href="gallery/outdoor-space.html"></option>
+          <option value="Shelves / Closets" data-href="gallery/shelves-closets.html"></option>
+        </datalist>
+
+        <p class="gallery-search-hint">Start typing, pick an option, then hit Enter or Go.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container grid grid-3">
+
+      <a class="gallery-card" href="gallery/bathroom.html">
+        <div class="card-top">
+          <img src="gallery/assets/images/bathroom/bathroom4.jpeg" alt="Bathroom projects">
+        </div>
+        <div class="card-link">
+          <div>
+            <h3>Bathrooms</h3>
+            <p>Tile, vanities, upgrades</p>
+          </div>
+          <span class="pill">View</span>
+        </div>
+      </a>
+
+      <a class="gallery-card" href="gallery/kitchen.html">
+        <div class="card-top">
+          <img src="gallery/assets/images/kitchen/kitchen1.jpeg" alt="Kitchen projects">
+        </div>
+        <div class="card-link">
+          <div><h3>Kitchen</h3><p>Cabinetry, counters, builds</p></div>
+          <span class="pill">View</span>
+        </div>
+      </a>
+
+      <a class="gallery-card" href="gallery/livingroom.html">
+        <div class="card-top">
+          <img src="gallery/assets/images/livingroom/living1.jpg" alt="Livingroom projects">
+        </div>
+        <div class="card-link">
+          <div><h3>Livingroom</h3><p>Built-ins, accents</p></div>
+          <span class="pill">View</span>
+        </div>
+      </a>
+
+      <a class="gallery-card" href="gallery/custom-beam-wrapping.html">
+        <div class="card-top">
+          <img src="gallery/assets/images/custombeamwrapping/beem1.png" alt="Custom beam wrapping projects">
+        </div>
+        <div class="card-link">
+          <div><h3>Custom Beam Wrapping</h3><p>Architectural detail</p></div>
+          <span class="pill">View</span>
+        </div>
+      </a>
+
+      <a class="gallery-card" href="gallery/custom-made.html">
+        <div class="card-top">
+          <img src="gallery/assets/images/custommadefinished/made11.jpeg" alt="Custom made projects">
+        </div>
+        <div class="card-link">
+          <div><h3>Custom Made</h3><p>Furniture & one-offs</p></div>
+          <span class="pill">View</span>
+        </div>
+      </a>
+
+      <a class="gallery-card" href="gallery/custom-room-accent-walls.html">
+        <div class="card-top">
+          <img src="gallery/assets/images/customroomswalls/custom35.jpeg" alt="Custom rooms and accent walls projects">
+        </div>
+        <div class="card-link">
+          <div><h3>Custom Rooms / Accent Walls</h3><p>Feature walls, spaces</p></div>
+          <span class="pill">View</span>
+        </div>
+      </a>
+
+      <a class="gallery-card" href="gallery/decks-roofs.html">
+        <div class="card-top">
+          <img src="gallery/assets/images/decksroofs/yard3.jpeg" alt="Deck and roof projects">
+        </div>
+        <div class="card-link">
+          <div><h3>Decks / Roofs</h3><p>Outdoor builds</p></div>
+          <span class="pill">View</span>
+        </div>
+      </a>
+
+      <a class="gallery-card" href="gallery/door-installations.html">
+        <div class="card-top">
+          <img src="gallery/assets/images/doors/door1.jpeg" alt="Door installation projects">
+        </div>
+        <div class="card-link">
+          <div><h3>Door Installations</h3><p>Interior & exterior</p></div>
+          <span class="pill">View</span>
+        </div>
+      </a>
+
+      <a class="gallery-card" href="gallery/floors-trim.html">
+        <div class="card-top">
+          <img src="gallery/assets/images/floorsbaseboardtrim/floors1.jpeg" alt="Floors and trim projects">
+        </div>
+        <div class="card-link">
+          <div><h3>Floors / Baseboards / Trim</h3><p>Finish carpentry</p></div>
+          <span class="pill">View</span>
+        </div>
+      </a>
+
+      <a class="gallery-card" href="gallery/outdoor-space.html">
+        <div class="card-top">
+          <img src="gallery/assets/images/outdoorspaces/out1.jpeg" alt="Outdoor space projects">
+        </div>
+        <div class="card-link">
+          <div><h3>Outdoor Space</h3><p>Pergolas, porches</p></div>
+          <span class="pill">View</span>
+        </div>
+      </a>
+
+      <a class="gallery-card" href="gallery/shelves-closets.html">
+        <div class="card-top">
+          <img src="gallery/assets/images/closetsselves/closet6.jpeg" alt="Shelves and closets projects">
+        </div>
+        <div class="card-link">
+          <div><h3>Shelves / Closets</h3><p>Storage solutions</p></div>
+          <span class="pill">View</span>
+        </div>
+      </a>
+
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <div><strong>Kingdom Woodcraft</strong> • Custom woodworking & renovations • Ph#: 678-428-6150</div>
+    <div>© <span id="year"></span> • Built with care</div>
+  </div>
+</footer>
+
+</body>
+</html>

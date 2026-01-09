@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>About | Kingdom Woodcraft</title>
+  <link rel="stylesheet" href="style.css" />
+  <script defer src="script.js"></script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container nav">
+    <a href="index.html" class="logo">
+      <img src="gallery/assets/images/White king logo.png" alt="Kingdom logo" id="logo">
+      <div class="brand-text">
+        <div class="name">Kingdom Woodcraft</div>
+        <div class="tag">Faith-driven craftsmanship • Built to last</div>
+      </div>
+    </a>
+
+    <button class="nav-toggle" type="button" data-nav-toggle aria-label="Toggle menu">Menu</button>
+
+    <nav class="nav-links" data-nav-links>
+      <a href="about.html">About</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="store.html">Storefront</a>
+      <a class="nav-btn" href="contact.html">Request a Quote</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="page-hero">
+    <div class="container">
+      <div class="breadcrumb">Home / About</div>
+      <p class="lead">We build with skill, integrity, and purpose—because your home deserves work done right.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container about-wrap">
+      <div class="owner-photo">
+        <img src="gallery/assets/images/owner.jpg" alt="Owner of Kingdom Woodcraft" />
+      </div>
+
+      <div class="card card-pad">
+        <h2 style="margin-top:0;">About Kingdom Woodcraft</h2>
+        <p style="color:var(--muted); margin-top:.25rem;">
+          At Kingdom Woodcraft, we’re a faith-driven team of skilled craftsmen with a passion for creating unique woodworking projects and transforming homes.
+          From custom furniture to full-scale renovations, we bring creativity, precision, and purpose to every job.
+        </p>
+
+        <h3 style="margin:1.2rem 0 .5rem;">Our specialties</h3>
+        <ul style="margin:.4rem 0 0; color:var(--muted); padding-left:1.1rem;">
+          <li>Kitchen & Bathroom Remodels</li>
+          <li>Custom Cabinetry & Built-Ins</li>
+          <li>Decks, Pergolas & Screened-In Porches</li>
+          <li>Electrical & Plumbing Work</li>
+          <li>Conference & Kitchen Tables</li>
+          <li>Bedroom Furniture</li>
+          <li>Tiny Homes, Custom Playgrounds & More</li>
+        </ul>
+
+        <p style="margin-top:1rem; color:var(--muted);">
+          If you can dream it, we can build it. Whether you’re planning a renovation or imagining a one-of-a-kind piece for your home,
+          we’re here to bring your vision to life—beautifully and faithfully.
+        </p>
+
+        <div style="margin-top:1rem; display:flex; gap:.75rem; flex-wrap:wrap;">
+          <a class="btn btn-primary" href="contact.html">Request a Quote</a>
+          <a class="btn btn-ghost" href="gallery.html">See Our Work</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <div><strong>Kingdom Woodcraft</strong> • Custom woodworking & renovations • Ph#: 678-428-6150</div>
+    <div>© <span id="year"></span> • Built with care</div>
+  </div>
+    <script>
+      document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Contact | Kingdom Woodcraft</title>
+  <link rel="stylesheet" href="style.css" />
+  <script defer src="script.js"></script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container nav">
+    <a href="index.html" class="logo">
+      <img src="gallery/assets/images/White king logo.png" alt="Kingdom logo" id="logo">
+      <div class="brand-text">
+        <div class="name">Kingdom Woodcraft</div>
+        <div class="tag">Faith-driven craftsmanship • Built to last</div>
+      </div>
+    </a>
+
+    <button class="nav-toggle" type="button" data-nav-toggle aria-label="Toggle menu">Menu</button>
+
+    <nav class="nav-links" data-nav-links>
+      <a href="about.html">About</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="store.html">Storefront</a>
+      <a class="nav-btn" href="contact.html">Request a Quote</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="page-hero">
+    <div class="container">
+      <div class="breadcrumb">Home / Contact</div>
+      <h1>Request a Quote</h1>
+      <p class="lead">Give us the basics. We’ll follow up with next steps.</p>
+      <p class="lead">You can request a quote by email or give us a call at 678-428-6150</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+
+<form
+  id="quote-form"
+  class="form"
+  method="POST"
+  action="https://formspree.io/f/xdakrvrv"
+>
+  <input type="hidden" name="_subject" value="New Quote Request — Kingdom Woodcraft">
+
+  <div class="form-grid">
+    <div>
+      <label for="name">Name</label>
+      <input id="name" name="name" required placeholder="Your name" autocomplete="name" />
+    </div>
+
+    <div>
+      <label for="email">Email</label>
+      <input id="email" name="email" type="email" required placeholder="you@email.com" autocomplete="email" />
+    </div>
+
+    <div>
+      <label for="project">Project type</label>
+      <select id="project" name="project" required>
+        <option value="">Select one</option>
+        <option>Kitchen</option>
+        <option>Bathroom</option>
+        <option>Custom cabinetry / built-ins</option>
+        <option>Deck / pergola / outdoor</option>
+        <option>Trim / baseboards / doors</option>
+        <option>Custom furniture</option>
+        <option>Other</option>
+      </select>
+    </div>
+
+    <div>
+      <label for="budget">Budget</label>
+      <select id="budget" name="budget" required>
+        <option value="">Select range</option>
+        <option>Under $1,000</option>
+        <option>$1,000 – $5,000</option>
+        <option>$5,000 – $15,000</option>
+        <option>$15,000 – $30,000</option>
+        <option>$30,000+</option>
+      </select>
+    </div>
+  </div>
+
+  <div style="margin-top:.9rem;">
+    <label for="message">Message</label>
+    <textarea
+      id="message"
+      name="message"
+      required
+      placeholder="Describe what you want built, timeline, and anything important."
+    ></textarea>
+    <p class="help">Tip: include location + ideal start date for a faster quote.</p>
+  </div>
+
+  <!-- Honeypot spam protection (leave hidden) -->
+  <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
+
+  <div style="margin-top:1rem; display:flex; gap:.75rem; flex-wrap:wrap; justify-content:center;">
+    <button id="quote-submit" class="btn btn-primary" type="submit">Send Request</button>
+    <a class="btn btn-ghost" href="gallery.html">View work first</a>
+  </div>
+
+  <!-- Success message (hidden by default; script.js will show it) -->
+  <div id="form-success" class="form-success" aria-live="polite">
+    <strong>Request sent.</strong><br>
+    Check your email for a confirmation shortly.
+  </div>
+</form>
+
+
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <div><strong>Kingdom Woodcraft</strong> • Custom woodworking & renovations • Ph#: 678-428-6150</div>
+    <div>© <span id="year"></span> • Built with care</div>
+  </div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Kingdom Woodcraft | Custom Woodworking & Renovations</title>
+  <link rel="stylesheet" href="style.css" />
+  <script defer src="script.js"></script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container nav">
+    <a href="index.html" class="logo">
+      <img src="gallery/assets/images/White king logo.png" alt="Kingdom logo" id="logo">
+      <div class="brand-text">
+        <div class="name">Kingdom Woodcraft</div>
+        <div class="tag">Faith-driven craftsmanship • Built to last</div>
+      </div>
+    </a>
+
+    <button class="nav-toggle" type="button" data-nav-toggle aria-label="Toggle menu">Menu</button>
+
+    <nav class="nav-links" data-nav-links>
+      <a href="about.html">About</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="store.html">Storefront</a>
+      <a class="nav-btn" href="contact.html">Request a Quote</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="container hero-grid">
+      <div class="hero-title">
+        <h1>Custom woodworking and home transformations</h1>
+          <h2>—Done with precision and purpose—</h2>
+        <p class="lead">
+          From cabinetry and built-ins to decks, renovations, and heirloom furniture—if you can dream it, we can build it.
+        </p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="contact.html">Start Your Project</a>
+          <a class="btn btn-ghost" href="gallery.html">View Gallery</a>
+        </div>
+      </div>
+
+      <aside class="hero-card">
+        <h3>What we build</h3>
+        <ul>
+          <li>Kitchen & bathroom remodels</li>
+          <li>Custom cabinetry & built-ins</li>
+          <li>Decks, pergolas & outdoor spaces</li>
+          <li>Tables, bedroom furniture & more</li>
+        </ul>
+      </aside>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container-section-subtitle">
+      <h2>Services</h2>
+      <p>*Located in Tri-Cities TN*</p>
+      <p>Clear work. Clean finishes. No shortcuts.</p>
+    </div>
+
+    <div class="container grid grid-3">
+      <div class="card">
+        <div class="card-top"><img src="gallery/assets/images/custommadefinished/made4.jpeg"></div>
+        <div class="card-pad">
+          <h3>Renovations</h3>
+          <p>Kitchens, bathrooms, custom rooms, accent walls, trim and finishing.</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-top"><img src="gallery/assets/images/customroomswalls/custom35.jpeg"></div>
+        <div class="card-pad">
+          <h3>Custom Woodwork</h3>
+          <p>Cabinetry, built-ins, beam wrapping, shelves, closets, tables and furniture.</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-top"><img src="gallery/assets/images/outdoorspaces/out6.jpeg"></div>
+        <div class="card-pad">
+          <h3>Outdoor Builds</h3>
+          <p>Decks, roofs, pergolas, screened-in porches, and outdoor living spaces.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container-2-section-title">
+      <h2>Ready to talk?</h2>
+      <p>Tell us what you want done. We’ll tell you what it takes.</p>
+    </div>
+    <div class="container">
+      <div class="notice">
+        <strong>Fast path:</strong> Use the quote form with your budget range and project type.
+        We’ll respond with next steps.
+        <div style="margin-top:.9rem;">
+          <a class="btn btn-primary" href="contact.html">Request a Quote</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <div><strong>Kingdom Woodcraft</strong> • Custom woodworking & renovations • Ph#: 678-428-6150</div>
+    <div>© <span id="year"></span> • Built with care</div>
+  </div>
+    <script>
+      document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
