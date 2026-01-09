@@ -1,6 +1,6 @@
 /* =========================
    SOURCE PAGE TRACKING
-   - Fills <input id="source_page"> if present (contact form)
+   - Fills <input id="source_page"> if present (contact/quote form)
 ========================= */
 document.addEventListener("DOMContentLoaded", () => {
   const src = document.getElementById("source_page");
@@ -18,12 +18,34 @@ document.addEventListener("DOMContentLoaded", () => {
 })();
 
 /* =========================
+   CLICK TRACKING (GA if present)
+   - Tracks buttons/links with data-track + data-label
+========================= */
+(() => {
+  document.addEventListener("click", (e) => {
+    const el = e.target.closest("[data-track]");
+    if (!el) return;
+
+    const type = el.getAttribute("data-track");
+    const label =
+      el.getAttribute("data-label") ||
+      (el.textContent || "").trim().slice(0, 60);
+
+    if (window.gtag) {
+      gtag("event", type === "phone" ? "phone_click" : "cta_click", {
+        event_category: "engagement",
+        event_label: label,
+      });
+    }
+  });
+})();
+
+/* =========================
    NAV (mobile)
 ========================= */
 (() => {
   const toggle = document.querySelector("[data-nav-toggle]");
   const links = document.querySelector("[data-nav-links]");
-
   if (!toggle || !links) return;
 
   toggle.addEventListener("click", () => {
@@ -41,7 +63,7 @@ document.addEventListener("DOMContentLoaded", () => {
    - Works only on pages with #galleryJump
    - Enter key works
    - "Go" button calls goToGalleryCategory()
-   IMPORTANT: your category pages are ROOT files (not inside /gallery/)
+   IMPORTANT: category pages are ROOT files
 ========================= */
 function goToGalleryCategory() {
   const input = document.getElementById("galleryJump");
@@ -71,76 +93,76 @@ function goToGalleryCategory() {
     .replace(/\s+/g, " ")
     .replace(/[’'"]/g, "");
 
-  // ✅ ROOT-LEVEL FILES
+  // ✅ ROOT-LEVEL FILES (leading slash = safe from any page)
   const map = {
     // Bathrooms
-    bathrooms: "bathroom.html",
-    bathroom: "bathroom.html",
-    bath: "bathroom.html",
+    bathrooms: "/bathroom.html",
+    bathroom: "/bathroom.html",
+    bath: "/bathroom.html",
 
     // Kitchen
-    kitchen: "kitchen.html",
+    kitchen: "/kitchen.html",
 
     // Livingroom
-    livingroom: "livingroom.html",
-    "living room": "livingroom.html",
+    livingroom: "/livingroom.html",
+    "living room": "/livingroom.html",
 
     // Custom Beam Wrapping
-    "custom beam wrapping": "custom-beam-wrapping.html",
-    "beam wrapping": "custom-beam-wrapping.html",
-    beams: "custom-beam-wrapping.html",
-    beam: "custom-beam-wrapping.html",
+    "custom beam wrapping": "/custom-beam-wrapping.html",
+    "beam wrapping": "/custom-beam-wrapping.html",
+    beams: "/custom-beam-wrapping.html",
+    beam: "/custom-beam-wrapping.html",
 
     // Custom Made
-    "custom made": "custom-made.html",
-    custom: "custom-made.html",
-    furniture: "custom-made.html",
+    "custom made": "/custom-made.html",
+    custom: "/custom-made.html",
+    furniture: "/custom-made.html",
 
     // Custom Rooms / Accent Walls
-    "custom rooms / accent walls": "custom-room-accent-walls.html",
-    "custom rooms": "custom-room-accent-walls.html",
-    "accent walls": "custom-room-accent-walls.html",
-    "accent wall": "custom-room-accent-walls.html",
-    "feature wall": "custom-room-accent-walls.html",
-    "feature walls": "custom-room-accent-walls.html",
+    "custom rooms / accent walls": "/custom-room-accent-walls.html",
+    "custom rooms": "/custom-room-accent-walls.html",
+    "accent walls": "/custom-room-accent-walls.html",
+    "accent wall": "/custom-room-accent-walls.html",
+    "feature wall": "/custom-room-accent-walls.html",
+    "feature walls": "/custom-room-accent-walls.html",
 
     // Decks / Roofs
-    "decks / roofs": "decks-roofs.html",
-    decks: "decks-roofs.html",
-    deck: "decks-roofs.html",
-    roofs: "decks-roofs.html",
-    roof: "decks-roofs.html",
+    "decks / roofs": "/decks-roofs.html",
+    decks: "/decks-roofs.html",
+    deck: "/decks-roofs.html",
+    roofs: "/decks-roofs.html",
+    roof: "/decks-roofs.html",
 
     // Door Installations
-    "door installations": "door-installations.html",
-    doors: "door-installations.html",
-    door: "door-installations.html",
+    "door installations": "/door-installations.html",
+    doors: "/door-installations.html",
+    door: "/door-installations.html",
 
     // Floors / Trim
-    "floors / baseboards / trim": "floors-trim.html",
-    "floors / trim": "floors-trim.html",
-    floors: "floors-trim.html",
-    floor: "floors-trim.html",
-    baseboards: "floors-trim.html",
-    baseboard: "floors-trim.html",
-    trim: "floors-trim.html",
-    molding: "floors-trim.html",
+    "floors / baseboards / trim": "/floors-trim.html",
+    "floors / trim": "/floors-trim.html",
+    floors: "/floors-trim.html",
+    floor: "/floors-trim.html",
+    baseboards: "/floors-trim.html",
+    baseboard: "/floors-trim.html",
+    trim: "/floors-trim.html",
+    molding: "/floors-trim.html",
 
     // Outdoor Space
-    "outdoor space": "outdoor-space.html",
-    outdoor: "outdoor-space.html",
-    pergola: "outdoor-space.html",
-    pergolas: "outdoor-space.html",
-    porch: "outdoor-space.html",
-    porches: "outdoor-space.html",
+    "outdoor space": "/outdoor-space.html",
+    outdoor: "/outdoor-space.html",
+    pergola: "/outdoor-space.html",
+    pergolas: "/outdoor-space.html",
+    porch: "/outdoor-space.html",
+    porches: "/outdoor-space.html",
 
     // Shelves / Closets
-    "shelves / closets": "shelves-closets.html",
-    shelves: "shelves-closets.html",
-    shelf: "shelves-closets.html",
-    closets: "shelves-closets.html",
-    closet: "shelves-closets.html",
-    storage: "shelves-closets.html",
+    "shelves / closets": "/shelves-closets.html",
+    shelves: "/shelves-closets.html",
+    shelf: "/shelves-closets.html",
+    closets: "/shelves-closets.html",
+    closet: "/shelves-closets.html",
+    storage: "/shelves-closets.html",
   };
 
   // Exact match
@@ -159,19 +181,17 @@ function goToGalleryCategory() {
   alert("No match found. Try: Bathrooms, Kitchen, Livingroom, Decks, Trim…");
 }
 
-(() => {
-  document.addEventListener("DOMContentLoaded", () => {
-    const input = document.getElementById("galleryJump");
-    if (!input) return;
+document.addEventListener("DOMContentLoaded", () => {
+  const input = document.getElementById("galleryJump");
+  if (!input) return;
 
-    input.addEventListener("keydown", (e) => {
-      if (e.key === "Enter") {
-        e.preventDefault();
-        goToGalleryCategory();
-      }
-    });
+  input.addEventListener("keydown", (e) => {
+    if (e.key === "Enter") {
+      e.preventDefault();
+      goToGalleryCategory();
+    }
   });
-})();
+});
 
 /* =========================
    STORE PAGE
@@ -255,7 +275,9 @@ function goToGalleryCategory() {
   function render(category) {
     if (!productsEl) return;
 
-    const list = !category || category === "All" ? PRODUCTS : PRODUCTS.filter((p) => p.category === category);
+    const list = !category || category === "All"
+      ? PRODUCTS
+      : PRODUCTS.filter((p) => p.category === category);
 
     productsEl.innerHTML = list
       .map(
@@ -313,7 +335,7 @@ function goToGalleryCategory() {
 })();
 
 /* =========================
-   GALLERY LIGHTBOX (optional)
+   GALLERY LIGHTBOX
    - Works on any page that has images with [data-lightbox-img]
 ========================= */
 (() => {
@@ -402,8 +424,8 @@ function goToGalleryCategory() {
   const quoteForm = document.getElementById("quote-form");
   if (!quoteForm) return;
 
-  // ✅ Repo-site safe: goes to /kingdom-woodcraft/thank-you.html
-  const THANK_YOU_PATH = "thank-you.html";
+  // Resolves correctly whether you're on a custom domain OR GitHub Pages project URL.
+  const THANK_YOU_URL = new URL("thank-you.html", window.location.href);
 
   const quoteSubmit = document.getElementById("quote-submit");
 
@@ -425,7 +447,6 @@ function goToGalleryCategory() {
       });
 
       if (res.ok) {
-        // Analytics event (only fires if GA is installed)
         if (window.gtag) {
           gtag("event", "quote_request_submit", {
             event_category: "lead",
@@ -433,7 +454,7 @@ function goToGalleryCategory() {
           });
         }
 
-        window.location.assign(THANK_YOU_PATH);
+        window.location.assign(THANK_YOU_URL.toString());
         return;
       } else {
         let msg = "Something went wrong. Please try again.";

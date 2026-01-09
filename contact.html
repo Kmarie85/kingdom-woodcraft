@@ -5,16 +5,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Request a Quote | Kingdom Woodcraft</title>
   <meta name="description" content="Request a quote from Kingdom Woodcraft. Tell us what you want built and we’ll follow up with next steps." />
-  <link rel="stylesheet" href="style.css" />
-  <script defer src="script.js"></script>
+
+  <!-- Root-based assets -->
+  <link rel="stylesheet" href="/style.css" />
+  <script defer src="/script.js"></script>
 </head>
 
 <body>
 
 <header class="site-header">
   <div class="container nav">
-    <a href="index.html" class="logo">
-      <img src="gallery/assets/images/White king logo.png" alt="Kingdom logo" id="logo">
+    <a href="/index.html" class="logo">
+      <img src="/gallery/assets/images/White king logo.png" alt="Kingdom logo" id="logo" />
       <div class="brand-text">
         <div class="name">Kingdom Woodcraft</div>
         <div class="tag">Faith-driven craftsmanship • Built to last</div>
@@ -24,10 +26,10 @@
     <button class="nav-toggle" type="button" data-nav-toggle aria-label="Toggle menu">Menu</button>
 
     <nav class="nav-links" data-nav-links>
-      <a href="about.html">About</a>
-      <a href="gallery.html">Gallery</a>
-      <a href="store.html">Storefront</a>
-      <a class="nav-btn" href="contact.html">Request a Quote</a>
+      <a href="/about.html">About</a>
+      <a href="/gallery.html">Gallery</a>
+      <a href="/store.html">Storefront</a>
+      <a class="nav-btn" href="/contact.html" aria-current="page">Request a Quote</a>
     </nav>
   </div>
 </header>
@@ -35,7 +37,7 @@
 <main>
   <section class="page-hero">
     <div class="container">
-      <div class="breadcrumb">Home / Contact</div>
+      <div class="breadcrumb"><a href="/index.html">Home</a> / Contact</div>
       <h1>Request a Quote</h1>
       <p class="lead">Give us the basics. We’ll follow up with next steps.</p>
       <p class="lead">Prefer phone? Call <strong>678-428-6150</strong>.</p>
@@ -51,8 +53,8 @@
         method="POST"
         action="https://formspree.io/f/xdakrvrv"
       >
-        <input type="hidden" name="_subject" value="New Quote Request — Kingdom Woodcraft">
-        <input type="hidden" name="source_page" id="source_page" value="">
+        <input type="hidden" name="_subject" value="New Quote Request — Kingdom Woodcraft" />
+        <input type="hidden" name="source_page" id="source_page" value="" />
 
         <div class="form-grid">
           <div>
@@ -65,7 +67,7 @@
             <input id="email" name="email" type="email" required placeholder="you@email.com" autocomplete="email" />
           </div>
 
-          <!-- NEW: Preferred contact method -->
+          <!-- Preferred contact method -->
           <div>
             <label for="preferredContact">Preferred contact method</label>
             <select id="preferredContact" name="preferred_contact" required>
@@ -77,7 +79,7 @@
             <p class="help">If you choose phone/text, add a number below.</p>
           </div>
 
-          <!-- NEW: Phone (useful even if they pick email) -->
+          <!-- Phone -->
           <div>
             <label for="phone">Phone (optional)</label>
             <input
@@ -89,13 +91,13 @@
             />
           </div>
 
-          <!-- NEW: City -->
+          <!-- City -->
           <div>
             <label for="city">City</label>
             <input id="city" name="city" required placeholder="City" autocomplete="address-level2" />
           </div>
 
-          <!-- NEW: ZIP -->
+          <!-- ZIP -->
           <div>
             <label for="zip">ZIP</label>
             <input
@@ -150,11 +152,11 @@
         </div>
 
         <!-- Honeypot -->
-        <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
+        <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off" />
 
         <div style="margin-top:1rem; display:flex; gap:.75rem; flex-wrap:wrap; justify-content:center;">
           <button id="quote-submit" class="btn btn-primary" type="submit">Send Request</button>
-          <a class="btn btn-ghost" href="gallery.html">View work first</a>
+          <a class="btn btn-ghost" href="/gallery.html">View work first</a>
         </div>
       </form>
 

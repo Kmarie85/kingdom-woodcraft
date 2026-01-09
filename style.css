@@ -21,20 +21,21 @@ a {
   margin: 0 auto;
 }
 
-/* Keep content above the page overlay */
-main, header, footer {
-  position: relative;
-  z-index: 1;
-}
-
+/* =========================
+   Sticky footer layout
+   ========================= */
 body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+
   font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial,
     "Apple Color Emoji", "Segoe UI Emoji";
   color: #0b0f14;
   line-height: 1.55;
 
   /* FULL SITE background */
-  background-image: url("gallery/assets/images/backgroundpic.png");
+  background-image: url("/gallery/assets/images/backgroundpic.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -43,13 +44,22 @@ body {
   position: relative;
 }
 
-/* FULL SITE dark overlay (opacity control) */
+main { flex: 1 0 auto; }
+.footer { margin-top: auto; }
+
+/* Keep content above the page overlay */
+main, header, footer {
+  position: relative;
+  z-index: 1;
+}
+
+/* FULL SITE dark overlay */
 body::before {
   content: "";
   position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, 0.6); /* adjust opacity here */
-  z-index: 0; /* important: behind content, above background */
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 0;
   pointer-events: none;
 }
 
@@ -184,17 +194,15 @@ body::before {
 }
 
 /* =========================
-   Hero (keep look, remove duplicate background + extra overlay)
+   Hero
    ========================= */
 .hero {
   position: relative;
   min-height: 85vh;
   display: flex;
   align-items: center;
-  background-attachment: fixed; /* harmless; body already fixed */
 }
 
-/* ensure hero content sits above page overlay */
 .hero > .container {
   position: relative;
   z-index: 2;
@@ -207,9 +215,7 @@ body::before {
   color: #fff;
 }
 
-.hero-title {
-  margin-top: -100px;
-}
+.hero-title { margin-top: -100px; }
 
 .hero h1 {
   text-align: center;
@@ -263,26 +269,20 @@ body::before {
 
 .hero-card li {
   color: #0b0f14;
+  margin-bottom: .4rem;
 }
 
 .container-section-subtitle,
-.container-2-section-title {
-  color: #ffffff;
-}
-
+.container-2-section-title,
 .section-subtitle p,
 .section-title p {
   color: #ffffff;
 }
 
-.container-section-subtitle {
-  margin-top: -150px;
-}
-
-.hero-card li { margin-bottom: .4rem; }
+.container-section-subtitle { margin-top: -150px; }
 
 /* =========================
-   Page hero (keep as-is)
+   Page hero
    ========================= */
 .page-hero {
   padding: .5rem 0 .1rem;
@@ -320,7 +320,7 @@ body::before {
    Sections
    ========================= */
 .section {
-  padding-top: 1rem;   /* adjust smaller = higher up */
+  padding-top: 1rem;
   padding-bottom: 1rem;
 }
 
@@ -351,51 +351,15 @@ body::before {
 }
 
 /* =========================
-   Cards / Grid (keep gallery look)
+   Grid
    ========================= */
 .grid { display: grid; gap: 1rem; }
 .grid-3 { grid-template-columns: repeat(3, 1fr); }
 .grid-2 { grid-template-columns: repeat(2, 1fr); }
 
-/* ---------- FIX: Services cards (index.html) ----------
-   You want: image top 2/3, text bottom 1/3, image NOT filling/cropping
------------------------------------------------------- */
-.grid.grid-3 .card {
-  display: grid;
-  grid-template-rows: 2fr 1fr; /* top 2/3 image, bottom 1/3 text */
-  height: 360px;              /* adjust if you want taller/shorter */
-  background: white;
-  border: 4px ridge #123a63;
-  border-radius: 16px;
-  overflow: hidden;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
-}
-
-/* make the top section truly behave like a 2/3 panel */
-.grid.grid-3 .card .card-top {
-  height: auto;               /* overrides the old 150px rule below */
-  background: linear-gradient(135deg, #e5e7eb, #f3f4f6);
-  overflow: hidden;
-}
-
-/* image should be contained (no crop, no stretch) */
-.grid.grid-3 .card .card-top img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;        /* key: NOT cover */
-  object-position: center;
-  display: block;
-}
-
-/* keep your text padding area */
-.grid.grid-3 .card .card-pad {
-  padding: 1.1rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-/* ---------- END FIX ---------- */
-
+/* =========================
+   Cards (base)
+   ========================= */
 .card {
   background: white;
   border: 4px ridge #123a63;
@@ -404,49 +368,46 @@ body::before {
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
 }
 
+.card-pad { padding: 1.1rem; }
+.card h3 { margin: 0 0 0.35rem; }
+.card p { margin: 0; color: #4b5563; }
+
 /* =========================
-   Project gallery pages (Bathrooms, Kitchen, Beam, etc.)
-   Make all photo cards equal height and crop nicely
-========================= */
-
-.gallery-grid {
+   Services cards (index.html)
+   Image 2/3 + text 1/3, contain (no crop)
+   ========================= */
+.grid.grid-3 .card {
   display: grid;
-  gap: 1rem;
+  grid-template-rows: 2fr 1fr;
+  height: 360px;
 }
 
-/* FIXED: removed invalid stray text "each photo card" */
-.gallery-grid .card {
-  height: 320px;              /* pick your card height */
-  border-radius: 16px;
+.grid.grid-3 .card .card-top {
+  background: linear-gradient(135deg, #e5e7eb, #f3f4f6);
   overflow: hidden;
-  background: #fff;
 }
 
-/* image fills the card */
-.gallery-grid .card img {
+.grid.grid-3 .card .card-top img {
   width: 100%;
   height: 100%;
-  object-fit: cover;          /* key: crop to fill */
+  object-fit: contain;
   object-position: center;
-  display: block;
 }
 
-.gallery-card {
-  background: white;
-  border: 4px ridge #ffffff;
-  border-radius: 16px;
-  overflow: hidden;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+.grid.grid-3 .card .card-pad {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 /* =========================
-   Gallery category cards (image 2/3, text 1/3)
-========================= */
-
+   Gallery category cards (gallery.html)
+   Image 2/3 + text 1/3, cover crop
+   ========================= */
 a.gallery-card {
   display: grid;
-  grid-template-rows: 2fr 1fr;  /* top 2/3 image, bottom 1/3 text */
-  height: 320px;               /* controls card height; adjust */
+  grid-template-rows: 2fr 1fr;
+  height: 320px;
   border-radius: 16px;
   overflow: hidden;
   background: #fff;
@@ -455,24 +416,19 @@ a.gallery-card {
   text-decoration: none;
 }
 
-/* top image area */
 a.gallery-card .card-top {
   position: relative;
-  height: 100%;
   overflow: hidden;
-  background: #e5e7eb; /* fallback if no image */
+  background: #e5e7eb;
 }
 
-/* make the image fill the top area */
 a.gallery-card .card-top img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   object-position: center;
-  display: block;
 }
 
-/* bottom text area */
 a.gallery-card .card-link {
   background: #ffffff;
   padding: 1rem 1.1rem;
@@ -493,35 +449,40 @@ a.gallery-card .card-link p {
   color: #4b5563;
 }
 
-/* Force all gallery cards to the same shape */
+/* =========================
+   Project gallery pages (bathroom, kitchen, etc.)
+   Uses: .gallery-grid + .gallery-card
+   ========================= */
+.gallery-grid {
+  display: grid;
+  gap: 1rem;
+}
+
 .gallery-grid .gallery-card {
   aspect-ratio: 4 / 3;
-  position: relative;
+  border-radius: 16px;
   overflow: hidden;
+  background: #fff;
+  border: 4px ridge #ffffff;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
   display: flex;
 }
 
-/* Make images fill the card */
 .gallery-grid .gallery-card img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   object-position: center;
-  display: block;
 }
 
-.card-pad { padding: 1.1rem; }
-
-.card h3 { margin: 0 0 0.35rem; }
-
-.card p {
-  margin: 0;
-  color: #4b5563;
-}
-
+/* =========================
+   Pills
+   ========================= */
 .pill {
   display: inline-flex;
-  margin: 0 auto;
+  align-items: center;
+  justify-content: center;
+  min-width: 70px;
   padding: 0.25rem 0.55rem;
   border-radius: 10px;
   border: 1px solid #d1d5db;
@@ -529,7 +490,6 @@ a.gallery-card .card-link p {
   color: #4b5563;
   font-weight: 800;
   font-size: 0.85rem;
-  align-content: center;
 }
 
 .pill-wrap {
@@ -537,48 +497,9 @@ a.gallery-card .card-link p {
   justify-content: center;
 }
 
-/* Gallery cards (category tiles) */
-.card-top {
-  height: 150px;
-  background: linear-gradient(135deg, #e5e7eb, #f3f4f6);
-}
-
-.card-link {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  padding: 1rem 1.1rem;
-  text-align: center;
-}
-
-.card-link p {
-  color: #0b0f14;
-}
-
-.card-link h3 {
-  color: #0b0f14;
-  display: flex;
-  flex-direction: left;
-}
-
-a.card {
-  transition: transform .12s ease, box-shadow .12s ease, border-color .12s ease;
-}
-
-a.card:hover {
-  transform: translateY(-2px);
-  border-color: #123a63;
-  box-shadow: 0 14px 30px rgba(0,0,0,.12);
-}
-
-.card-link .pill {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-width: 70px;
-  text-align: center;
-}
-
+/* =========================
+   Gallery search
+   ========================= */
 .section-search {
   padding-top: 1.5rem;
   padding-bottom: 1.5rem;
@@ -616,17 +537,9 @@ a.card:hover {
   outline: none;
 }
 
-.gallery-search-input::placeholder {
-  color: rgba(255,255,255,0.65);
-}
-
-.gallery-search-input:focus {
-  border-color: rgba(255,255,255,0.35);
-}
-
-.gallery-search-btn {
-  white-space: nowrap;
-}
+.gallery-search-input::placeholder { color: rgba(255,255,255,0.65); }
+.gallery-search-input:focus { border-color: rgba(255,255,255,0.35); }
+.gallery-search-btn { white-space: nowrap; }
 
 .gallery-search-hint {
   margin-top: 0.65rem;
@@ -687,20 +600,18 @@ textarea {
   color: #fff;
 }
 
-.form-success.open {
-  display: block;
-}
+.form-success.open { display: block; }
 
 .contact-card{
   border: 2px solid rgba(0,0,0,.15);
-  border-radius: 14px;         /* smaller radius */
-  padding: 14px 16px;          /* more left padding so text never kisses the edge */
-  overflow: visible;           /* prevents clipping */
+  border-radius: 14px;
+  padding: 14px 16px;
+  overflow: visible;
   background: rgba(255,255,255,.85);
 }
 
 /* =========================
-   Store (kept the same)
+   Store
    ========================= */
 .notice {
   border: 4px ridge #123a63;
@@ -730,9 +641,7 @@ textarea {
   flex-wrap: wrap;
 }
 
-.left {
-  color: #e5e7eb;
-}
+.left { color: #e5e7eb; }
 
 .product-grid {
   display: grid;
@@ -754,7 +663,6 @@ textarea {
 }
 
 .product .body { padding: 1rem; }
-
 .product .price { font-weight: 950; }
 
 .product .muted {
@@ -836,7 +744,6 @@ textarea {
    Footer
    ========================= */
 .footer {
-  margin-top: 2.5rem;
   background-color: #000000;
   padding: 1rem 0;
   border-top: 1px solid #d1d5db;
@@ -847,7 +754,7 @@ textarea {
 .footer strong { color: #4b5563; }
 
 /* =========================
-   Responsive (fixed nesting)
+   Responsive
    ========================= */
 @media (max-width: 900px) {
   .grid-3 { grid-template-columns: 1fr; }
@@ -873,7 +780,6 @@ textarea {
   }
 
   .nav-links a { padding: 0.8rem 0.9rem; }
-
   .nav-links.open { display: flex; }
 
   .hero-grid { grid-template-columns: 1fr; text-align: center; }

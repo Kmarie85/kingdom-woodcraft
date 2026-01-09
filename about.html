@@ -3,16 +3,26 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+
   <title>About | Kingdom Woodcraft</title>
-  <link rel="stylesheet" href="style.css" />
-  <script defer src="script.js"></script>
+  <meta
+    name="description"
+    content="Learn about Kingdom Woodcraft — a faith-driven team serving Tri-Cities TN with custom woodworking, renovations, cabinetry, and outdoor builds."
+  />
+
+  <link rel="canonical" href="https://kmarie85.github.io/kingdom-woodcraft/about.html" />
+
+  <!-- Root-based assets -->
+  <link rel="stylesheet" href="/style.css" />
+  <script defer src="/script.js"></script>
 </head>
+
 <body>
 
 <header class="site-header">
   <div class="container nav">
-    <a href="index.html" class="logo">
-      <img src="gallery/assets/images/White king logo.png" alt="Kingdom logo" id="logo">
+    <a href="/index.html" class="logo" aria-label="Kingdom Woodcraft home">
+      <img src="/gallery/assets/images/White king logo.png" alt="Kingdom Woodcraft logo" id="logo" />
       <div class="brand-text">
         <div class="name">Kingdom Woodcraft</div>
         <div class="tag">Faith-driven craftsmanship • Built to last</div>
@@ -22,10 +32,12 @@
     <button class="nav-toggle" type="button" data-nav-toggle aria-label="Toggle menu">Menu</button>
 
     <nav class="nav-links" data-nav-links>
-      <a href="about.html">About</a>
-      <a href="gallery.html">Gallery</a>
-      <a href="store.html">Storefront</a>
-      <a class="nav-btn" href="contact.html">Request a Quote</a>
+      <a href="/about.html" aria-current="page">About</a>
+      <a href="/gallery.html">Gallery</a>
+      <a href="/store.html">Storefront</a>
+
+      <!-- Primary conversion -->
+      <a class="nav-btn" href="/contact.html" data-track="cta" data-label="nav_request_quote">Request a Quote</a>
     </nav>
   </div>
 </header>
@@ -33,22 +45,24 @@
 <main>
   <section class="page-hero">
     <div class="container">
-      <div class="breadcrumb">Home / About</div>
-      <p class="lead">We build with skill, integrity, and purpose—because your home deserves work done right.</p>
+      <div class="breadcrumb"><a href="/index.html">Home</a> / About</div>
+      <h1>Built with skill, integrity, and purpose.</h1>
+      <p class="lead">Serving Tri-Cities TN with custom woodwork, renovations, and outdoor builds—done right the first time.</p>
     </div>
   </section>
 
   <section class="section">
     <div class="container about-wrap">
       <div class="owner-photo">
-        <img src="gallery/assets/images/owner.jpg" alt="Owner of Kingdom Woodcraft" />
+        <img src="/gallery/assets/images/owner.jpg" alt="Owner of Kingdom Woodcraft" loading="lazy" />
       </div>
 
       <div class="card card-pad">
         <h2 style="margin-top:0;">About Kingdom Woodcraft</h2>
+
         <p style="color:var(--muted); margin-top:.25rem;">
-          At Kingdom Woodcraft, we’re a faith-driven team of skilled craftsmen with a passion for creating unique woodworking projects and transforming homes.
-          From custom furniture to full-scale renovations, we bring creativity, precision, and purpose to every job.
+          At Kingdom Woodcraft, we’re a faith-driven team of skilled craftsmen with a passion for creating unique woodworking projects
+          and transforming homes. From custom furniture to full-scale renovations, we bring creativity, precision, and purpose to every job.
         </p>
 
         <h3 style="margin:1.2rem 0 .5rem;">Our specialties</h3>
@@ -68,8 +82,9 @@
         </p>
 
         <div style="margin-top:1rem; display:flex; gap:.75rem; flex-wrap:wrap;">
-          <a class="btn btn-primary" href="contact.html">Request a Quote</a>
-          <a class="btn btn-ghost" href="gallery.html">See Our Work</a>
+          <a class="btn btn-primary" href="/contact.html" data-track="cta" data-label="about_request_quote">Request a Quote</a>
+          <a class="btn btn-ghost" href="/gallery.html" data-track="cta" data-label="about_see_work">See Our Work</a>
+          <a class="btn btn-ghost" href="tel:16784286150" data-track="phone" data-label="about_call">Call: 678-428-6150</a>
         </div>
       </div>
     </div>
@@ -78,12 +93,12 @@
 
 <footer class="footer">
   <div class="container">
-    <div><strong>Kingdom Woodcraft</strong> • Custom woodworking & renovations • Ph#: 678-428-6150</div>
+    <div>
+      <strong>Kingdom Woodcraft</strong> • Custom woodworking & renovations •
+      <a href="tel:16784286150" data-track="phone" data-label="footer_call">678-428-6150</a>
+    </div>
     <div>© <span id="year"></span> • Built with care</div>
   </div>
-    <script>
-      document.getElementById('year').textContent = new Date().getFullYear();
-    </script>
 </footer>
 
 </body>
