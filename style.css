@@ -801,9 +801,9 @@ textarea {
   .nav-links.open { display: flex; }
 
   .hero {
-    padding-top: 2.25rem; /* slightly less on mobile */
+    padding-top: 5.5rem; /* slightly less on mobile */
     min-height: auto;
   }
 
-  .hero-card { margin: 1.75rem auto 3rem; }
+  .hero-card { margin: 2rem auto 5rem; }
 }
