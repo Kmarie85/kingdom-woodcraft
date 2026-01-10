@@ -21,6 +21,11 @@ a {
   margin: 0 auto;
 }
 
+:root {
+  /* Set this to your real sticky header height */
+  --header-h: 110px;
+}
+
 /* =========================
    Sticky footer layout
    ========================= */
@@ -76,13 +81,22 @@ body::before {
   min-height: 70px;
 }
 
+.site-header,
+.nav {
+  min-height: 110px;
+}
+
+.hero {
+  padding-top: calc(110px + 1rem);
+  min-height: calc(85vh - 110px);
+}
+
 .nav {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
   padding: 0.9rem 0;
-  min-height: 70px;
 }
 
 #logo {
@@ -215,7 +229,7 @@ body::before {
   color: #fff;
 }
 
-.hero-title { margin-top: -100px; }
+.hero-title { margin-top: 0; }
 
 .hero h1 {
   text-align: center;
@@ -261,7 +275,7 @@ body::before {
 
 .hero-card ul {
   padding-left: 0;
-  margin: 0;
+  margin: 2rem auto 4rem; 
   color: #4b5563;
   list-style: none;
   text-align: center;
@@ -279,7 +293,7 @@ body::before {
   color: #ffffff;
 }
 
-.container-section-subtitle { margin-top: -150px; }
+.container-section-subtitle { margin-top: 0; }
 
 /* =========================
    Page hero
@@ -320,8 +334,8 @@ body::before {
    Sections
    ========================= */
 .section {
-  padding-top: 1rem;
-  padding-bottom: 1rem;
+  padding-top: 2.5rem;
+  padding-bottom: 2rem;
 }
 
 .section h2,
