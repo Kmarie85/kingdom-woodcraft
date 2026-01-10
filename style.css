@@ -29,7 +29,7 @@ a {
 ========================= */
 :root{
   /* This is the key: a realistic sticky header height */
-  --header-h: 100px;
+  --header-h: 90px;
 }
 
 body {
