@@ -299,7 +299,7 @@ body::before {
 
 /* Kill the old subtitle “pull up” behavior */
 .container-section-subtitle h2{
-  margin-top: .5rem;
+  margin-top: -.5rem;
 }
 
 /* =========================
