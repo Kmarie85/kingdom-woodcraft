@@ -298,7 +298,7 @@ body::before {
 }
 
 /* Kill the old subtitle “pull up” behavior */
-.container-section-subtitle { margin-top: 0 !important; }
+.container-section-subtitle { margin-top: 2.5rem !important; }
 
 /* =========================
    Page hero
