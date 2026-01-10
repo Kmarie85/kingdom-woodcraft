@@ -9,6 +9,9 @@ html, body {
   min-height: 100%;
 }
 
+/* Helps anchor links not hide under sticky header */
+html { scroll-padding-top: 120px; }
+
 img {
   max-width: 100%;
   display: block;
@@ -25,13 +28,8 @@ a {
 }
 
 /* =========================
-   Global layout + background
+   Sticky footer layout
 ========================= */
-:root{
-  /* This is the key: a realistic sticky header height */
-  --header-h: 90px;
-}
-
 body {
   min-height: 100vh;
   display: flex;
@@ -42,6 +40,7 @@ body {
   color: #0b0f14;
   line-height: 1.55;
 
+  /* FULL SITE background */
   background-image: url("/gallery/assets/images/backgroundpic.png");
   background-size: cover;
   background-position: center;
@@ -80,11 +79,6 @@ body::before {
   background: #0b0f14;
   backdrop-filter: blur(10px);
   border-bottom: 1px solid #d1d5db;
-
-  /* make the sticky header height predictable */
-  min-height: var(--header-h);
-  display: flex;
-  align-items: center;
 }
 
 .nav {
@@ -93,14 +87,12 @@ body::before {
   justify-content: space-between;
   gap: 1rem;
 
-  /* vertical padding is what makes the header “feel” tall */
+  /* This is your real header height driver */
   padding: 0.75rem 0;
-  width: 100%;
-  min-height: var(--header-h);
 }
 
 #logo {
-  height: 85px;
+  height: 78px; /* slightly smaller = less header dominance on 13" */
   width: auto;
   display: block;
 }
@@ -209,7 +201,9 @@ body::before {
 }
 
 /* =========================
-   Hero
+   Hero (FIXED)
+   - No negative margins
+   - Adds safe padding so content never sits under sticky header
 ========================= */
 .hero {
   position: relative;
@@ -217,9 +211,9 @@ body::before {
   display: flex;
   align-items: flex-start;
 
-  /* THIS FIXES: title sitting under sticky header */
-  padding-top: calc(var(--header-h) + 0.5rem);
-  padding-bottom: 2rem;
+  /* This is the key: real spacing from the header without guessing header height */
+  padding-top: 3.25rem;
+  padding-bottom: 2.5rem;
 }
 
 .hero > .container {
@@ -234,13 +228,12 @@ body::before {
   color: #fff;
 }
 
-/* REMOVE the negative pull that causes overlap on smaller screens */
-.hero-title { margin-top: 0; }
+/* Kill the old “pull up” behavior completely */
+.hero-title { margin-top: 0 !important; }
 
 .hero h1 {
   text-align: center;
-  margin-top: 0;              /* was 25px; safer now */
-  margin-bottom: 0.75rem;
+  margin: 0 0 0.75rem;
 }
 
 .hero h3 { font-size: 20px; }
@@ -248,8 +241,7 @@ body::before {
 .hero h2 {
   text-align: center;
   font-size: 25px;
-  margin-top: 0;
-  margin-bottom: 1rem;
+  margin: 0 0 1rem;
 }
 
 .hero p {
@@ -273,8 +265,10 @@ body::before {
   border-radius: 16px;
   padding: 1.5rem;
   box-shadow: 0 12px 28px rgba(0,0,0,.08);
-  max-width: 520px;          /* a touch wider looks nicer */
-  margin: 2rem auto 3rem;    /* THIS FIXES: Services too close */
+  max-width: 520px;
+
+  /* This is the key gap before Services */
+  margin: 2rem auto 3.25rem;
 }
 
 .hero-card h3 {
@@ -303,8 +297,8 @@ body::before {
   color: #ffffff;
 }
 
-/* REMOVE the negative pull that crushes spacing */
-.container-section-subtitle { margin-top: 0; }
+/* Kill the old subtitle “pull up” behavior */
+.container-section-subtitle { margin-top: 0 !important; }
 
 /* =========================
    Page hero
@@ -342,18 +336,15 @@ body::before {
 }
 
 /* =========================
-   Sections
+   Sections (FIXED spacing)
 ========================= */
 .section {
-  padding-top: 2.5rem;     /* more breathing room */
-  padding-bottom: 2rem;
+  padding-top: 2.25rem;
+  padding-bottom: 2.25rem;
 }
 
 .section h2,
 .section p { text-align: center; }
-
-/* If you jump to anchors (like #services) this prevents sticky header overlap */
-[id] { scroll-margin-top: calc(var(--header-h) + 16px); }
 
 /* About layout */
 .about-wrap {
@@ -402,7 +393,6 @@ body::before {
 
 /* =========================
    Services cards (index.html)
-   Image 2/3 + text 1/3, contain (no crop)
 ========================= */
 .grid.grid-3 .card {
   display: grid;
@@ -430,7 +420,6 @@ body::before {
 
 /* =========================
    Gallery category cards (gallery.html)
-   Image 2/3 + text 1/3, cover crop
 ========================= */
 a.gallery-card {
   display: grid;
@@ -478,8 +467,7 @@ a.gallery-card .card-link p {
 }
 
 /* =========================
-   Project gallery pages (bathroom, kitchen, etc.)
-   Uses: .gallery-grid + .gallery-card
+   Project gallery pages
 ========================= */
 .gallery-grid {
   display: grid;
@@ -785,12 +773,12 @@ textarea {
    Responsive
 ========================= */
 @media (max-width: 900px) {
-  :root { --header-h: 96px; } /* slightly shorter on mobile */
-
   .grid-3 { grid-template-columns: 1fr; }
   .grid-2 { grid-template-columns: 1fr; }
   .product-grid { grid-template-columns: 1fr; }
   .form-grid { grid-template-columns: 1fr; }
+
+  #logo { height: 66px; }
 
   .nav-toggle { display: inline-flex; }
 
@@ -799,7 +787,7 @@ textarea {
     position: absolute;
     left: 1rem;
     right: 1rem;
-    top: calc(var(--header-h) - 6px);
+    top: 76px;
     background: white;
     border: 1px solid #d1d5db;
     border-radius: 16px;
@@ -812,6 +800,10 @@ textarea {
   .nav-links a { padding: 0.8rem 0.9rem; }
   .nav-links.open { display: flex; }
 
-  .hero { padding-top: calc(var(--header-h) + 0.75rem); }
-  .hero-card { margin: 1.5rem auto 3rem; }
+  .hero {
+    padding-top: 2.25rem; /* slightly less on mobile */
+    min-height: auto;
+  }
+
+  .hero-card { margin: 1.75rem auto 3rem; }
 }
