@@ -808,4 +808,9 @@ textarea {
   }
 
   .hero-card { margin: 2rem auto 5rem; }
+
+  .container-section-subtitle h2{
+  margin-top: 0 !important;        /* stop h2 margin weirdness */
+  padding-top: 5rem !important;    /* padding won't collapse like margin */
+}
 }
