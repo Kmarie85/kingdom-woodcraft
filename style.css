@@ -86,13 +86,11 @@ body::before {
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
-
-  /* This is your real header height driver */
   padding: 0.75rem 0;
 }
 
 #logo {
-  height: 78px; /* slightly smaller = less header dominance on 13" */
+  height: 78px;
   width: auto;
   display: block;
 }
@@ -201,9 +199,9 @@ body::before {
 }
 
 /* =========================
-   Hero (FIXED)
-   - No negative margins
-   - Adds safe padding so content never sits under sticky header
+   Hero
+   - Enough top padding to avoid sticky header overlap
+   - No negative margin hacks
 ========================= */
 .hero {
   position: relative;
@@ -211,7 +209,7 @@ body::before {
   display: flex;
   align-items: flex-start;
 
-  /* This is the key: real spacing from the header without guessing header height */
+  /* Main fix: keeps title from sitting under sticky header */
   padding-top: 3.25rem;
   padding-bottom: 2.5rem;
 }
@@ -228,8 +226,7 @@ body::before {
   color: #fff;
 }
 
-/* Kill the old “pull up” behavior completely */
-.hero-title { margin-top: 0 !important; }
+.hero-title { margin-top: 0; }
 
 .hero h1 {
   text-align: center;
@@ -267,8 +264,8 @@ body::before {
   box-shadow: 0 12px 28px rgba(0,0,0,.08);
   max-width: 520px;
 
-  /* This is the key gap before Services */
-  margin: 2rem auto 3.25rem;
+  /* IMPORTANT: keep Services close */
+  margin: 2rem auto 1.75rem;
 }
 
 .hero-card h3 {
@@ -290,6 +287,9 @@ body::before {
   margin-bottom: .4rem;
 }
 
+/* =========================
+   Section titles
+========================= */
 .container-section-subtitle,
 .container-2-section-title,
 .section-subtitle p,
@@ -297,9 +297,23 @@ body::before {
   color: #ffffff;
 }
 
-/* Kill the old subtitle “pull up” behavior */
-.container-section-subtitle h2{
-  margin-top: -.5rem;
+/* Services title block (FIXED)
+   - no padding-top hacks
+   - controlled spacing so it sits close to hero card
+*/
+.container-section-subtitle {
+  text-align: center;
+  margin-top: 0;
+  margin-bottom: 1.25rem;
+}
+
+.container-section-subtitle h2 {
+  margin: 0 0 0.5rem;
+  padding: 0;
+}
+
+.container-section-subtitle p {
+  margin: 0;
 }
 
 /* =========================
@@ -338,10 +352,11 @@ body::before {
 }
 
 /* =========================
-   Sections (FIXED spacing)
+   Sections
 ========================= */
 .section {
-  padding-top: 2.25rem;
+  /* IMPORTANT: smaller top padding keeps Services close */
+  padding-top: 1.25rem;
   padding-bottom: 2.25rem;
 }
 
@@ -802,15 +817,17 @@ textarea {
   .nav-links a { padding: 0.8rem 0.9rem; }
   .nav-links.open { display: flex; }
 
+  /* Keep hero readable */
   .hero {
-    padding-top: 5.5rem; /* slightly less on mobile */
+    padding-top: 4.75rem;
     min-height: auto;
   }
 
-  .hero-card { margin: 2rem auto 5rem; }
+  /* Keep Services close on mobile too */
+  .hero-card { margin: 1.75rem auto 1.25rem; }
 
-  .container-section-subtitle h2{
-  margin-top: 0 !important;        /* stop h2 margin weirdness */
-  padding-top: 5rem !important;    /* padding won't collapse like margin */
-}
+  .section { padding-top: 1rem; }
+
+  .container-section-subtitle { margin-bottom: 1rem; }
+  .container-section-subtitle h2 { margin: 0 0 0.5rem; padding: 0; }
 }
