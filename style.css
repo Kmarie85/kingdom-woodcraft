@@ -1,3 +1,6 @@
+/* =========================
+   Reset / Base
+========================= */
 * { box-sizing: border-box; }
 
 html, body {
@@ -21,14 +24,14 @@ a {
   margin: 0 auto;
 }
 
-:root {
-  /* Set this to your real sticky header height */
+/* =========================
+   Global layout + background
+========================= */
+:root{
+  /* This is the key: a realistic sticky header height */
   --header-h: 110px;
 }
 
-/* =========================
-   Sticky footer layout
-   ========================= */
 body {
   min-height: 100vh;
   display: flex;
@@ -39,7 +42,6 @@ body {
   color: #0b0f14;
   line-height: 1.55;
 
-  /* FULL SITE background */
   background-image: url("/gallery/assets/images/backgroundpic.png");
   background-size: cover;
   background-position: center;
@@ -70,7 +72,7 @@ body::before {
 
 /* =========================
    Header / Nav
-   ========================= */
+========================= */
 .site-header {
   position: sticky;
   top: 0;
@@ -78,17 +80,11 @@ body::before {
   background: #0b0f14;
   backdrop-filter: blur(10px);
   border-bottom: 1px solid #d1d5db;
-  min-height: 70px;
-}
 
-.site-header,
-.nav {
-  min-height: 110px;
-}
-
-.hero {
-  padding-top: calc(110px + 1rem);
-  min-height: calc(85vh - 110px);
+  /* make the sticky header height predictable */
+  min-height: var(--header-h);
+  display: flex;
+  align-items: center;
 }
 
 .nav {
@@ -96,7 +92,11 @@ body::before {
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
-  padding: 0.9rem 0;
+
+  /* vertical padding is what makes the header “feel” tall */
+  padding: 0.75rem 0;
+  width: 100%;
+  min-height: var(--header-h);
 }
 
 #logo {
@@ -108,6 +108,7 @@ body::before {
 .logo {
   display: flex;
   align-items: center;
+  gap: 0.75rem;
   font-family: "Times New Roman", Times, serif;
   font-size: 30px;
 }
@@ -163,7 +164,7 @@ body::before {
 
 /* =========================
    Buttons
-   ========================= */
+========================= */
 .nav-btn {
   background: #99c0f0;
   color: #1e3d5b;
@@ -209,12 +210,16 @@ body::before {
 
 /* =========================
    Hero
-   ========================= */
+========================= */
 .hero {
   position: relative;
   min-height: 85vh;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
+
+  /* THIS FIXES: title sitting under sticky header */
+  padding-top: calc(var(--header-h) + 1rem);
+  padding-bottom: 2rem;
 }
 
 .hero > .container {
@@ -229,11 +234,13 @@ body::before {
   color: #fff;
 }
 
+/* REMOVE the negative pull that causes overlap on smaller screens */
 .hero-title { margin-top: 0; }
 
 .hero h1 {
   text-align: center;
-  margin-top: 25px;
+  margin-top: 0;              /* was 25px; safer now */
+  margin-bottom: 0.75rem;
 }
 
 .hero h3 { font-size: 20px; }
@@ -241,6 +248,8 @@ body::before {
 .hero h2 {
   text-align: center;
   font-size: 25px;
+  margin-top: 0;
+  margin-bottom: 1rem;
 }
 
 .hero p {
@@ -254,6 +263,7 @@ body::before {
   justify-content: center;
   gap: 1rem;
   margin-top: 1.5rem;
+  flex-wrap: wrap;
 }
 
 /* Hero card */
@@ -263,8 +273,8 @@ body::before {
   border-radius: 16px;
   padding: 1.5rem;
   box-shadow: 0 12px 28px rgba(0,0,0,.08);
-  max-width: 400px;
-  margin: 25px auto 50px;
+  max-width: 520px;          /* a touch wider looks nicer */
+  margin: 2rem auto 4rem;    /* THIS FIXES: Services too close */
 }
 
 .hero-card h3 {
@@ -275,7 +285,7 @@ body::before {
 
 .hero-card ul {
   padding-left: 0;
-  margin: 2rem auto 4rem; 
+  margin: 0;
   color: #4b5563;
   list-style: none;
   text-align: center;
@@ -293,11 +303,12 @@ body::before {
   color: #ffffff;
 }
 
+/* REMOVE the negative pull that crushes spacing */
 .container-section-subtitle { margin-top: 0; }
 
 /* =========================
    Page hero
-   ========================= */
+========================= */
 .page-hero {
   padding: .5rem 0 .1rem;
   border-bottom: 1px solid #d1d5db;
@@ -332,14 +343,17 @@ body::before {
 
 /* =========================
    Sections
-   ========================= */
+========================= */
 .section {
-  padding-top: 2.5rem;
+  padding-top: 2.5rem;     /* more breathing room */
   padding-bottom: 2rem;
 }
 
 .section h2,
 .section p { text-align: center; }
+
+/* If you jump to anchors (like #services) this prevents sticky header overlap */
+[id] { scroll-margin-top: calc(var(--header-h) + 16px); }
 
 /* About layout */
 .about-wrap {
@@ -366,14 +380,14 @@ body::before {
 
 /* =========================
    Grid
-   ========================= */
+========================= */
 .grid { display: grid; gap: 1rem; }
 .grid-3 { grid-template-columns: repeat(3, 1fr); }
 .grid-2 { grid-template-columns: repeat(2, 1fr); }
 
 /* =========================
    Cards (base)
-   ========================= */
+========================= */
 .card {
   background: white;
   border: 4px ridge #123a63;
@@ -389,7 +403,7 @@ body::before {
 /* =========================
    Services cards (index.html)
    Image 2/3 + text 1/3, contain (no crop)
-   ========================= */
+========================= */
 .grid.grid-3 .card {
   display: grid;
   grid-template-rows: 2fr 1fr;
@@ -417,7 +431,7 @@ body::before {
 /* =========================
    Gallery category cards (gallery.html)
    Image 2/3 + text 1/3, cover crop
-   ========================= */
+========================= */
 a.gallery-card {
   display: grid;
   grid-template-rows: 2fr 1fr;
@@ -466,7 +480,7 @@ a.gallery-card .card-link p {
 /* =========================
    Project gallery pages (bathroom, kitchen, etc.)
    Uses: .gallery-grid + .gallery-card
-   ========================= */
+========================= */
 .gallery-grid {
   display: grid;
   gap: 1rem;
@@ -491,7 +505,7 @@ a.gallery-card .card-link p {
 
 /* =========================
    Pills
-   ========================= */
+========================= */
 .pill {
   display: inline-flex;
   align-items: center;
@@ -513,7 +527,7 @@ a.gallery-card .card-link p {
 
 /* =========================
    Gallery search
-   ========================= */
+========================= */
 .section-search {
   padding-top: 1.5rem;
   padding-bottom: 1.5rem;
@@ -563,7 +577,7 @@ a.gallery-card .card-link p {
 
 /* =========================
    Forms
-   ========================= */
+========================= */
 .form {
   background: white;
   border: 1px solid #d1d5db;
@@ -626,7 +640,7 @@ textarea {
 
 /* =========================
    Store
-   ========================= */
+========================= */
 .notice {
   border: 4px ridge #123a63;
   background: #f3f4f6;
@@ -704,7 +718,7 @@ textarea {
 
 /* =========================
    Lightbox
-   ========================= */
+========================= */
 .lightbox {
   position: fixed;
   inset: 0;
@@ -756,7 +770,7 @@ textarea {
 
 /* =========================
    Footer
-   ========================= */
+========================= */
 .footer {
   background-color: #000000;
   padding: 1rem 0;
@@ -769,8 +783,10 @@ textarea {
 
 /* =========================
    Responsive
-   ========================= */
+========================= */
 @media (max-width: 900px) {
+  :root { --header-h: 96px; } /* slightly shorter on mobile */
+
   .grid-3 { grid-template-columns: 1fr; }
   .grid-2 { grid-template-columns: 1fr; }
   .product-grid { grid-template-columns: 1fr; }
@@ -783,7 +799,7 @@ textarea {
     position: absolute;
     left: 1rem;
     right: 1rem;
-    top: 64px;
+    top: calc(var(--header-h) - 6px);
     background: white;
     border: 1px solid #d1d5db;
     border-radius: 16px;
@@ -796,6 +812,6 @@ textarea {
   .nav-links a { padding: 0.8rem 0.9rem; }
   .nav-links.open { display: flex; }
 
-  .hero-grid { grid-template-columns: 1fr; text-align: center; }
-  .hero-card { margin-top: 1.5rem; }
+  .hero { padding-top: calc(var(--header-h) + 0.75rem); }
+  .hero-card { margin: 1.5rem auto 3rem; }
 }
