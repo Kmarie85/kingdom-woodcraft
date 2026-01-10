@@ -831,3 +831,25 @@ textarea {
   .container-section-subtitle { margin-bottom: 1rem; }
   .container-section-subtitle h2 { margin: 0 0 0.1rem; padding: 0; }
 }
+
+/* =========================
+   MOBILE FIX: remove big hero gap
+========================= */
+@media (max-width: 900px) {
+  /* Kill the extra vertical space */
+  .hero {
+    min-height: 0 !important;      /* overrides any 85vh */
+    padding-top: 2.5rem !important;
+    padding-bottom: 1rem !important;
+  }
+
+  /* Keep the card close to Services */
+  .hero-card {
+    margin-bottom: 1rem !important;
+  }
+
+  /* Keep Services tight */
+  .section {
+    padding-top: 0.75rem !important;
+  }
+}
