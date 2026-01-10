@@ -29,7 +29,7 @@ a {
 ========================= */
 :root{
   /* This is the key: a realistic sticky header height */
-  --header-h: 110px;
+  --header-h: 100px;
 }
 
 body {
@@ -218,7 +218,7 @@ body::before {
   align-items: flex-start;
 
   /* THIS FIXES: title sitting under sticky header */
-  padding-top: calc(var(--header-h) + 1rem);
+  padding-top: calc(var(--header-h) + 0.5rem);
   padding-bottom: 2rem;
 }
 
@@ -274,7 +274,7 @@ body::before {
   padding: 1.5rem;
   box-shadow: 0 12px 28px rgba(0,0,0,.08);
   max-width: 520px;          /* a touch wider looks nicer */
-  margin: 2rem auto 4rem;    /* THIS FIXES: Services too close */
+  margin: 2rem auto 3rem;    /* THIS FIXES: Services too close */
 }
 
 .hero-card h3 {
