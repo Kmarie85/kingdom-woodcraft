@@ -18,10 +18,16 @@
 
 <header class="site-header">
   <div class="container nav">
-    <a href="index.html" class="logo">
+    <a
+      href="index.html"
+      class="logo"
+      aria-label="Kingdom Woodcraft home"
+      data-track="nav"
+      data-label="nav_logo_home"
+    >
       <img
         src="gallery/assets/images/White king logo.png"
-        alt="Kingdom logo"
+        alt="Kingdom Woodcraft logo"
         id="logo"
       />
       <div class="brand-text">
@@ -35,18 +41,31 @@
       type="button"
       data-nav-toggle
       aria-label="Toggle menu"
+      data-track="nav"
+      data-label="nav_toggle"
     >
       Menu
     </button>
 
     <nav class="nav-links" data-nav-links>
-      <a href="about.html">About</a>
-      <a href="gallery.html">Gallery</a>
-      <!-- <a href="store.html">Storefront</a> -->
-      <a class="nav-btn" href="contact.html">Request a Quote</a>
+      <a href="about.html" data-track="nav" data-label="nav_about">About</a>
+      <a href="gallery.html" data-track="nav" data-label="nav_gallery">Gallery</a>
+
+      <!-- <a href="store.html" data-track="nav" data-label="nav_store">Storefront</a> -->
+
+      <!-- Primary conversion -->
+      <a
+        class="nav-btn"
+        href="contact.html"
+        data-track="quote"
+        data-label="nav_request_quote"
+      >
+        Request a Quote
+      </a>
     </nav>
   </div>
 </header>
+
 
 <main>
   <section class="page-hero">
@@ -99,9 +118,19 @@
   <div class="container">
     <div>
       <strong>Kingdom Woodcraft</strong> • Custom woodworking & renovations •
-      Ph#: 678-428-6150
+      <a
+        href="tel:+16784286150"
+        data-track="phone"
+        data-label="footer_phone_call"
+        aria-label="Call Kingdom Woodcraft"
+      >
+        678-428-6150
+      </a>
     </div>
-    <div>© <span id="year"></span> • Built with care</div>
+
+    <div>
+      © <span id="year"></span> • Built with care
+    </div>
   </div>
 </footer>
 
