@@ -405,7 +405,7 @@ body::before {
   border-radius: 16px;
   border-style: ridge;
   overflow: hidden;
-  border: 4px solid #123a63;
+  border: 4px ridge #123a63;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
 }
 
