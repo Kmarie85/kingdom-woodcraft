@@ -41,7 +41,7 @@ body {
   line-height: 1.55;
 
   /* FULL SITE background (ROOT-SAFE path for GitHub Pages) */
-  background-image: url("gallery/assets/images/backgroundpic.png");
+  background-image: url("gallery/assets/images/backgroundpic.jpeg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
