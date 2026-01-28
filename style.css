@@ -225,10 +225,15 @@ body::before {
 ========================= */
 .hero {
   position: relative;
+  min-height: auto;
   display: flex;
   align-items: flex-start;
   padding-top: 3.25rem;
-  padding-bottom: 2.5rem;
+  padding-bottom: 1.5rem;
+}
+
+.hero + .section{
+  padding-top: 0.75rem;
 }
 
 .hero > .container {
