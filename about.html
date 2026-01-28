@@ -1,156 +1,211 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <title>Kingdom Woodcraft | Custom Woodworking & Renovations</title>
+    <title>Kingdom Woodcraft | Custom Woodworking & Renovations</title>
 
-  <!-- SEO -->
-  <meta
-    name="description"
-    content="Kingdom Woodcraft provides faith-driven custom woodworking and home renovations in Tennessee. Built to last."
-  />
-  <link rel="canonical" href="https://kingdomwoodcrafttn.com/" />
+    <!-- SEO -->
+    <meta
+      name="description"
+      content="Kingdom Woodcraft provides faith-driven custom woodworking and home renovations in Tennessee. Built to last."
+    />
+    <link rel="canonical" href="https://kingdomwoodcrafttn.com/" />
 
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-2VG68LPSWY"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-2VG68LPSWY"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
 
-  gtag('config', 'G-2VG68LPSWY');
-</script>
+      gtag("config", "G-2VG68LPSWY");
+    </script>
 
-  <!-- Styles & Scripts -->
-  <link rel="stylesheet" href="style.css" />
-  <script defer src="script.js"></script>
-</head>
+    <!-- Styles & Scripts -->
+    <link rel="stylesheet" href="style.css" />
+    <script defer src="script.js"></script>
+  </head>
 
+  <body>
+    <header class="site-header">
+      <div class="container nav">
+        <a
+          href="index.html"
+          class="logo"
+          aria-label="Kingdom Woodcraft home"
+          data-track="nav"
+          data-label="nav_logo_home"
+        >
+          <img
+            src="gallery/assets/images/White king logo.png"
+            alt="Kingdom Woodcraft logo"
+            id="logo"
+          />
+          <div class="brand-text">
+            <div class="name">Kingdom Woodcraft</div>
+            <div class="tag">Faith-driven craftsmanship • Built to last</div>
+          </div>
+        </a>
 
-<body>
+        <button
+          class="nav-toggle"
+          type="button"
+          data-nav-toggle
+          aria-label="Toggle menu"
+          data-track="nav"
+          data-label="nav_toggle"
+        >
+          Menu
+        </button>
 
-<header class="site-header">
-  <div class="container nav">
-    <a
-      href="index.html"
-      class="logo"
-      aria-label="Kingdom Woodcraft home"
-      data-track="nav"
-      data-label="nav_logo_home"
-    >
-      <img
-        src="gallery/assets/images/White king logo.png"
-        alt="Kingdom Woodcraft logo"
-        id="logo"
-      />
-      <div class="brand-text">
-        <div class="name">Kingdom Woodcraft</div>
-        <div class="tag">Faith-driven craftsmanship • Built to last</div>
+        <nav class="nav-links" data-nav-links>
+          <a href="about.html" data-track="nav" data-label="nav_about">About</a>
+          <a href="gallery.html" data-track="nav" data-label="nav_gallery"
+            >Gallery</a
+          >
+
+          <!-- <a href="store.html" data-track="nav" data-label="nav_store">Storefront</a> -->
+
+          <!-- Primary conversion -->
+          <a
+            class="nav-btn"
+            href="contact.html"
+            data-track="quote"
+            data-label="nav_request_quote"
+          >
+            Request a Quote
+          </a>
+        </nav>
       </div>
-    </a>
+    </header>
 
-    <button
-      class="nav-toggle"
-      type="button"
-      data-nav-toggle
-      aria-label="Toggle menu"
-      data-track="nav"
-      data-label="nav_toggle"
-    >
-      Menu
-    </button>
-
-    <nav class="nav-links" data-nav-links>
-      <a href="about.html" data-track="nav" data-label="nav_about">About</a>
-      <a href="gallery.html" data-track="nav" data-label="nav_gallery">Gallery</a>
-
-      <!-- <a href="store.html" data-track="nav" data-label="nav_store">Storefront</a> -->
-
-      <!-- Primary conversion -->
-      <a
-        class="nav-btn"
-        href="contact.html"
-        data-track="quote"
-        data-label="nav_request_quote"
-      >
-        Request a Quote
-      </a>
-    </nav>
-  </div>
-</header>
-
-
-<main>
-  <section class="page-hero">
-    <div class="container">
-      <div class="breadcrumb"><a href="index.html">Home</a> / About</div>
-      <h1>Built with skill, integrity, and purpose.</h1>
-      <p class="lead">Serving Tri-Cities TN with custom woodwork, renovations, and outdoor builds—done right the first time.</p>
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="container about-wrap">
-      <div class="owner-photo">
-        <img src="gallery/assets/images/owner.jpg" alt="Owner of Kingdom Woodcraft" loading="lazy" />
-      </div>
-
-      <div class="card card-pad">
-        <h2 style="margin-top:0;">About Kingdom Woodcraft</h2>
-
-        <p style="color:var(--muted); margin-top:.25rem;">
-          At Kingdom Woodcraft, we’re a faith-driven team of skilled craftsmen with a passion for creating unique woodworking projects
-          and transforming homes. From custom furniture to full-scale renovations, we bring creativity, precision, and purpose to every job.
-        </p>
-
-        <h3 style="margin:1.2rem 0 .5rem;">Our specialties</h3>
-        <ul style="margin:.4rem 0 0; color:var(--muted); padding-left:1.1rem;">
-          <li>Kitchen & Bathroom Remodels</li>
-          <li>Custom Cabinetry & Built-Ins</li>
-          <li>Decks, Pergolas & Screened-In Porches</li>
-          <li>Electrical & Plumbing Work</li>
-          <li>Conference & Kitchen Tables</li>
-          <li>Bedroom Furniture</li>
-          <li>Tiny Homes, Custom Playgrounds & More</li>
-        </ul>
-
-        <p style="margin-top:1rem; color:var(--muted);">
-          If you can dream it, we can build it. Whether you’re planning a renovation or imagining a one-of-a-kind piece for your home,
-          we’re here to bring your vision to life—beautifully and faithfully.
-        </p>
-
-        <div style="margin-top:1rem; display:flex; gap:.75rem; flex-wrap:wrap;">
-          <a class="btn btn-primary" href="contact.html" data-track="cta" data-label="about_request_quote">Request a Quote</a>
-          <a class="btn btn-ghost" href="gallery.html" data-track="cta" data-label="about_see_work">See Our Work</a>
-          <a class="btn btn-ghost" href="tel:16784286150" data-track="phone" data-label="about_call">Call: 678-428-6150</a>
+    <main>
+      <section class="page-hero">
+        <div class="container">
+          <div class="breadcrumb"><a href="index.html">Home</a> / About</div>
+          <h1>Built with skill, integrity, and purpose.</h1>
+          <p class="lead">
+            Serving Tri-Cities TN with custom woodwork, renovations, and outdoor
+            builds—done right the first time.
+          </p>
         </div>
-      </div>
-    </div>
-  </section>
-</main>
+      </section>
+
+      <section class="section">
+        <div class="container about-wrap">
+          <div class="owner-photo">
+            <img
+              src="gallery/assets/images/owner.jpg"
+              alt="Owner of Kingdom Woodcraft"
+              loading="lazy"
+            />
+          </div>
+
+          <div class="card card-pad">
+            <h2 style="margin-top: 0">About Kingdom Woodcraft</h2>
+
+            <p style="color: var(--muted); margin-top: 0.25rem">
+              At Kingdom Woodcraft, we’re a faith-driven team of skilled
+              craftsmen with a passion for creating unique woodworking projects
+              and transforming homes. From custom furniture to full-scale
+              renovations, we bring creativity, precision, and purpose to every
+              job.
+            </p>
+
+            <h3 style="margin: 1.2rem 0 0.5rem">Our specialties</h3>
+            <ul
+              style="
+                margin: 0.4rem 0 0;
+                color: var(--muted);
+                padding-left: 1.1rem;
+              "
+            >
+              <li>Kitchen & Bathroom Remodels</li>
+              <li>Custom Cabinetry & Built-Ins</li>
+              <li>Decks, Pergolas & Screened-In Porches</li>
+              <li>Electrical & Plumbing Work</li>
+              <li>Conference & Kitchen Tables</li>
+              <li>Bedroom Furniture</li>
+              <li>Tiny Homes, Custom Playgrounds & More</li>
+            </ul>
+
+            <p style="margin-top: 1rem; color: var(--muted)">
+              If you can dream it, we can build it. Whether you’re planning a
+              renovation or imagining a one-of-a-kind piece for your home, we’re
+              here to bring your vision to life—beautifully and faithfully.
+            </p>
+
+            <div
+              style="
+                margin-top: 1rem;
+                display: flex;
+                gap: 0.75rem;
+                flex-wrap: wrap;
+              "
+            >
+              <a
+                class="btn btn-primary"
+                href="contact.html"
+                data-track="cta"
+                data-label="about_request_quote"
+                >Request a Quote</a
+              >
+              <a
+                class="btn btn-ghost"
+                href="gallery.html"
+                data-track="cta"
+                data-label="about_see_work"
+                >See Our Work</a
+              >
+              <a
+                class="btn btn-ghost"
+                href="tel:1423-430-7219"
+                data-track="phone"
+                data-label="about_call"
+                >Call: 423-430-7219</a
+              >
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
 
 <footer class="footer">
   <div class="container">
     <div>
       <strong>Kingdom Woodcraft</strong> • Custom woodworking & renovations •
       <a
-        href="tel:+16784286150"
+        href="tel:+14234307219"
         data-track="phone"
         data-label="footer_phone_call"
         aria-label="Call Kingdom Woodcraft"
       >
-        678-428-6150
+        423-430-7219
       </a>
     </div>
 
-    <div>
-      © <span id="year"></span> • Built with care
+    <div class="muted">© <span id="year"></span> • Built with care</div>
+
+    <div class="muted site-credit">
+      Site by
+      <a
+        class="kmc"
+        href="https://kaylamariecollective.com"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Kayla Marie Collective
+      </a>
     </div>
   </div>
 </footer>
 
-
-</body>
+  </body>
 </html>
